@@ -24,3 +24,103 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+$wallpaper: " '/../assets/fondo.png' ";
+$fontColor: #fff;
+$ColorInput:#999;
+$colorLine:rgba(226, 193, 6, 0.87);
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    color: $fontColor;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+.fondo-1{
+    position: relative;
+    background: url(#{$wallpaper}) 100% center no-repeat;
+    height: 100%;
+    background-size: cover ;
+    position: relative ;
+    border: none ;
+}
+.logo-s{
+    max-width: 120px;
+    height: 150px;
+}
+.logo-m{
+    width: 350px;
+    height: 165px; 
+}
+.icon{
+    max-width: 20px;
+    height: auto;
+}
+.btn{
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn-green{
+    color: #212529;
+    background: #6dfc42;
+    border-color: #6dfc42;
+}
+.btn-green:hover,
+.btn-green:focus{
+    color:#000;
+    background: #4bf019;
+    border-color: #4bf019;
+}
+.btn-white{
+    font-weight: 400;
+    width:50%;
+    color:#000;
+    background: #f8f9fa;
+    border-color: #f8f9fa;
+}
+.btn-white:hover,
+.btn-white:focus{
+    color: #fff;
+    background: #9fa1a4;
+    border-color: #dae0e5;
+}
+.btn-xl{
+    width: 100%;
+    height: 70%;
+}
+.mt-m {
+    margin-top: 30px;
+}
+
+.center-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.end-flex{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.fontW-400{
+    font-weight: 400;
+}

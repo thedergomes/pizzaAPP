@@ -1,0 +1,69 @@
+<ion-header >
+  <ion-toolbar class="headerColor">
+    <ion-buttons (click)="goToLoginPage()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="arrow-dropleft-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<body>  
+  <div class="grid fondo-1">
+    <div class="item0"></div>
+    <div class="item1"> 
+      <img class="logo-s" src="../../assets/logo.svg">
+    </div>
+    <div class="itemp0 fontW-400 info-center">
+      <span>Necesitamos validar su informacion registrada para cambiar su contraseña.</span>
+    </div>
+    <div class="item2">
+      <div class="grid-form">
+        <div class="form-item1 bb center-flex"> 
+          <img class="icon iconPosition" src="../../assets/mail.svg">
+        </div>
+        <div class="form-item2 bb center-flex">
+            <div class="container">
+              <div class="group">      
+                <input class="inputMail" type="text" required>
+                <span class="highlight"></span>
+                <span class="bar barMail"></span>
+                <label>Correo</label>
+              </div>
+            </div>
+        </div>
+        <div class="form-item3 bb center-flex"> 
+            <img class="icon iconPosition" src="../../assets/question.svg">
+          </div>
+          <div class="form-item4 bb">
+              <div class="container">
+                <div class="group">
+                  <select class="inputMail h-20 w-100">
+                    <option value="0"></option>
+                    <option value="1">Pregunta 1</option>
+                    <option value="2">Pregunta 2</option>
+                    <option value="3">Pregunta 3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          <div class="form-item5 bb center-flex"> 
+              <img class="icon iconPosition" src="../../assets/question.svg">
+            </div>
+            <div class="form-item6 bb center-flex">
+                <div class="container">
+                  <div class="group">      
+                    <input class="inputMail" type="text" required>
+                    <span class="highlight"></span>
+                    <span class="bar barMail"></span>
+                    <label>Respuesta Secreta</label>
+                  </div>
+                </div>
+            </div>
+            <div class="form-item7 center-flex">
+              <button (click)="test()" class="btn btn-white">Continuar</button>
+            </div>
+      </div>
+    </div>
+    <div class="item4"></div>
+  </div>
+  

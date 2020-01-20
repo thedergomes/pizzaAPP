@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiRestURL: ' http://localhost/',
+  RegisterURL: 'public/index.php/api/v1/register'
 };
 
 /*
