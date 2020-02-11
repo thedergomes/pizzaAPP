@@ -1,0 +1,89 @@
+@import '../../global.scss';
+$fondo-color: #15151570;
+$text-color: #b9b4b4a3;
+.grid {
+  display: grid;
+  grid-template-columns: 10% 6fr 6fr 10%;
+  grid-template-rows: 25% auto;
+  grid-template-areas: 
+    "header    header    header     header"
+    "marginL    products  products   marginR";
+}
+.grid-header {
+  display: grid;
+  grid-template-columns:10% 20% 60% 10%;
+  grid-template-rows: auto; 
+  grid-template-areas: 
+    "marginHL icon categorie marginHR";
+}
+.order-header {
+    background: $gray-index;
+    border-radius: 4%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding: 5px;
+    font-size: 0.7em;
+    grid-template-areas:
+        "headerImage headerProduct  headerPrice headerAmount headerSubTotal ";
+}
+.order-header-image { grid-area: headerImage;}
+.order-header-product { grid-area: headerProduct;}
+.order-header-price { grid-area: headerPrice;}
+.order-header-amount { grid-area: headerAmount;}
+.order-header-subTotal { grid-area: headerSubTotal;}
+
+.grid-orders {
+  display: grid;
+  grid-template-columns: 12fr;
+  grid-row-gap: 15px;
+  grid-column-gap: 15px;
+  grid-template-rows: auto; 
+}
+.order {
+  font-size: 0.7em;
+  background: $gray-fondo;
+  max-height: 150px;
+  border-radius: 4%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "image product price amount subTotal";
+
+}
+.item0 {grid-area: marginL; grid-row: 1 / -1 ;} // marginL
+.itemx {grid-area: marginR; grid-row: 1 / -1 ;} //marginR
+
+.container-header { grid-area: header;}
+.container-product { grid-area: product;}
+
+
+.item-header1 {grid-area: icon; background: $gray-fondo; border-radius: 4%;}
+.item-header2 { grid-area: categorie; background: $gray-fondo; border-radius: 4%;}
+
+.container-orders { grid-area: products;}
+.order-image {grid-gap: image;}
+.order-product { grid-area: product;}
+.order-price { grid-area: price;}
+.order-amount {grid-area: amount;}
+.order-subTotal {grid-area: subTotal;}
+
+
+
+
+
+
+
+
+.status{
+  width: 80%;
+  border-radius: 4px;
+  color: #fff;
+}
+.status-green {
+  background: green;
+}
+.status-orange {
+  background: orange;
+}

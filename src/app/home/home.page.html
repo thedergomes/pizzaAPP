@@ -1,4 +1,53 @@
-<div class="grid fondo-1">
+  <ion-header>
+      <ion-toolbar  class="headerColor">
+        <ion-buttons slot="start">
+        </ion-buttons>
+        <ion-title class="center-flex"> 
+            <img class="icon-header" src="assets/logo.svg">
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <body>
+        <div class="grid fondo-1">
+            <div class="item0 fondo-2 ">
+                <div class="grid-header mt-xl">
+                    <div class="header-item0"></div>
+                    <div class="header-item1 h-100 position" (click)="goToMenuPage()">
+                        <div> <img class="icon-header" src="assets/menu.svg"> </div>
+                        <div class="menuTextStyle">Menú</div>
+                    </div>
+                    <div class="header-item2 h-100 position" (click)="goToReservationPage()">
+                        <div> <img class="icon-header" src="assets/reserve.svg"> </div>
+                        <div class="menuTextStyle">Reservar</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item1">
+                <!-- BOTON DE INICIAR SESION ACTIVAR SI NO DETECTA TOKEN -->
+                <div *ngIf="token == null">
+                    <button (click)="goToLoginPage()" class="btn btn-green btn-xl">Ingresar/Registrar</button>
+                </div> 
+                <!-- BOTON DE INICIAR SESION ACTIVAR SI NO DETECTA TOKEN -->
 
-</div>
+                <!-- BAR CON ICONOS ACTIVAR SI DETECTA TOKEN -->
+                <div class="Token" *ngIf="token != null">
+                    <div class="bar-container">
+                        <div (click)="goToTicketPage()" class="bar-item1 center-flex" id=""><img class="icon-bar cursor" src="assets/order.svg"></div>
+                        <div (click)="goToPromotionsPage()" class="bar-item2 center-flex" id=""><img class="icon-bar cursor" src="assets/promotion.svg"></div>
+                        <div (click)="goToOrdersPage()" class="bar-item3 center-flex" id=""><img class="icon-bar cursor" src="assets/history.svg"></div>
+                        <div (click)="goToSettingPage()" class="bar-item4 center-flex" id=""><img class="icon-bar cursor" src="assets/setting.svg"></div>
+                    </div>
+                </div>
+                <!-- BAR CON ICONOS ACTIVAR SI DETECTA TOKEN -->
+            </div>
+            <div class="item2">
+            <img class="promotion" src="assets/promotion1.jpg">
+            <img class="promotion" src="assets/promotion2.jpg">
+            <img class="promotion" src="assets/promotion3.jpg">
+
+            </div>
+            <div class="itemy"></div>
+            <div class="itemx"></div>
+        </div>
+    </body>
   

@@ -26,9 +26,14 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 $wallpaper: " '/../assets/fondo.png' ";
+$wallpaper-header: " '/../assets/fondoHeader.png' ";
+$alert1: "'/../assets/alert1.jpg'";
+
 $fontColor: #fff;
 $ColorInput:#999;
 $colorLine:rgba(226, 193, 6, 0.87);
+$gray-fondo: #393838d4;
+$gray-index: #7b7878a8; 
 *{
     box-sizing: border-box;
     margin:0;
@@ -48,6 +53,14 @@ a{
     position: relative ;
     border: none ;
 }
+.fondo-2{
+    position: relative;
+    background: url(#{$wallpaper-header}) 100% center no-repeat;
+    height: 100%;
+    background-size: cover ;
+    position: relative ;
+    border: none ;
+}
 .logo-s{
     max-width: 120px;
     height: 150px;
@@ -58,6 +71,18 @@ a{
 }
 .icon{
     max-width: 20px;
+    height: auto;
+}
+.iconSmall{
+    max-width: 15px;
+    height: auto;
+}
+.icon-header{
+    max-width: 50px;
+    height: auto;
+}
+.icon-header2{
+    max-width: 40px;
     height: auto;
 }
 .btn{
@@ -89,6 +114,17 @@ a{
     background: #4bf019;
     border-color: #4bf019;
 }
+.btn-red{
+    color: #212529;
+    background: #ff0000;
+    border-color:#ff0000;
+}
+.btn-red:hover,
+.btn-red:focus{
+    color:#000;
+    background: #b30404;
+    border-color: #b30404;
+}
 .btn-white{
     font-weight: 400;
     width:50%;
@@ -106,10 +142,13 @@ a{
     width: 100%;
     height: 70%;
 }
+.btn-block { width: 100%;}
 .mt-m {
     margin-top: 30px;
 }
-
+.mt-xl {
+    margin-top: 60px;
+}
 .center-flex{
     display: flex;
     justify-content: center;
@@ -124,3 +163,132 @@ a{
 .fontW-400{
     font-weight: 400;
 }
+.fontW-600{
+    font-weight: 600;
+}
+
+
+.error{
+    color: red;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.headerColor{
+    --background: #00000021;
+}
+.right-flex{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.left-flex{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+}
+.w-100  { width: 100%;}
+.w-90   { width: 90%;}
+.w-80   { width: 80%;}
+.w-50   { width: 50%;}
+
+.active { color: $colorLine !important }
+
+.h-100  { height: 100px;}
+.h-150  { height: 150px;}
+
+  
+
+.mt-15 { margin-top: 15%;}
+.ml-10 { margin-left: 10%;}
+.mb-2 { margin-bottom: 2%;}
+.font-size-2em  { font-size: 2em;}
+.font-size-1-2em { font-size: 1.2em;}
+.pt-10 { padding-top: 10%;}
+.pb-10 { padding-bottom: 10%; }
+
+.position {
+    padding-top: 10%;
+    padding-bottom: 20%;
+    display: inline-grid;
+    text-align: center;
+  }
+.text-aling-right { text-align: right; }
+.text-aling-center  { text-align: center;}
+
+.cursor {
+    cursor: pointer;
+}
+
+
+
+
+// alerta product
+.alert-wrapper {
+    position: relative;
+    background: url(#{$alert1}) 100% center no-repeat;
+    background-size: cover ;
+    position: relative ;
+    border: none ;
+
+
+}
+.alert-title{
+    color: $fontColor !important;
+}
+.alert-message {
+    text-align: start;
+    font-size: 15px;
+    color: $fontColor;
+}
+.alert-button-group{
+    background: #ffffff63 !important;
+}
+.button-cancel span
+{
+  color: red !important;
+  font-weight: 400; 
+  text-shadow: 1px 2px #000000e6;
+
+}
+.button-success span
+{
+    font-weight: 400; 
+    color: green !important;
+    text-shadow: 1px 2px #000000e6;
+}
+
+.details{
+   color: $fontColor;
+   font-size: 15px;
+   font-weight: 600;
+}
+.price1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.price2 {
+    font-weight: 600;
+}
+.gordito {
+    font-weight: 400; 
+    color: rgb(233, 48, 250) !important;
+    text-shadow: 1px 2px #000000e6;
+
+}
+.m-h-50{
+    max-height: 50px; 
+}
+
+
+input:required{
+    border: 0px
+}
+
+.font-size07{
+    font-size: 0.7em;
+}
+
+.pr { position: relative;}
+.pa { position: absolute; }

@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar class="headerColor">
+        <ion-button (click)="closeModal()">Close Modal</ion-button>
+    </ion-toolbar>
+  </ion-header>
+  <body>
+      <div class="grid fondo-1">
+        <div class="item0"></div>
+        <div class="container-header fondo-2 h-150">
+          <div class="grid-header mt-15">
+              <div class="item-header1 center-flex pt-10 pb-10"><img  class="icon-header" src="assets/history.svg"></div>
+              <div class="item-header2 center-flex fontW-600 font-size-1-2em pt-10 pb-10"> Orden N° {{orderNumber}} </div>
+          </div>
+        </div>
+        <div class="container-orders">
+          <div class="grid-orders">
+            <div class="order-header">
+                <div class="order-header-image ctext-aling-center"></div>
+                <div class="order-header-product text-aling-center">Producto</div>
+                <div class="order-header-price text-aling-center">Precio</div>
+                <div class="order-header-amount text-aling-center">Cantidad</div>
+                <div class="order-header-subTotal text-aling-center">Sub-total</div>
+            </div>
+            <div class="order" *ngFor="let detail of details;">
+                <div class="order-image center-flex"><img class="w-50" [src]="detail.food.image"></div>
+                <div class="order-product center-flex">{{detail.food.name}}</div>
+                <div class="order-price center-flex">{{detail.food.price}}</div>
+                <div class="order-amount center-flex">{{detail.quantity}}</div>
+                <div class="order-subTotal center-flex">${{detail.quantity * detail.food.price}}</div>
+            </div>
+            <div class="order">
+                <div class="order-order center-flex"><img class="w-80"></div>
+                <div class="order-order center-flex"></div>
+                <div class="order-time center-flex"></div>
+                <div class="order-time center-flex"></div>
+                <div class="order-header-status text-aling-center">Total:${{total | json}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="itemx"></div>
+      </div>
+  </body>

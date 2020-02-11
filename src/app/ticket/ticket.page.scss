@@ -1,0 +1,91 @@
+@import '../../global.scss';
+$fondo-color: #15151570;
+$text-color: #b9b4b4a3;
+.grid {
+  display: grid;
+  grid-template-columns: 10% 6fr 6fr 10%;
+  grid-template-rows: 25% auto;
+  grid-template-areas: 
+    "header    header    header     header"
+    "marginL    products  products   marginR";
+}
+.grid-header {
+  display: grid;
+  grid-template-columns:10% 20% 60% 10%;
+  grid-template-rows: auto; 
+  grid-template-areas: 
+    "marginHL icon categorie marginHR";
+}
+.ticket-header {
+    background: $gray-index;
+    border-radius: 4%;
+    display: grid;
+    grid-template-columns: 6% 30% 25% 14% 25%;
+    padding: 5px;
+    font-size: 0.8em;
+    grid-template-areas:
+        "ticketImage ticketTitle  ticketPrice   ticketAmount ticketTotal";
+    
+}
+.ticket-header-image { grid-area: ticketImage;}
+.ticket-header-title { grid-area: ticketTitle;}
+.ticket-header-price { grid-area: ticketPrice;}
+.ticket-header-amount { grid-area: ticketAmount;}
+.ticket-header-total {grid-area: ticketTotal;}
+
+.grid-total {
+    border-radius: 4%;
+    display: grid;
+    grid-template-columns: 6% 30% 14% 25% 25%;
+    padding: 5px;
+    grid-row-gap: 15px;
+    grid-template-areas:
+        "empty  empty   empty   text    total"
+        "empty2  delete   delete  button  button";
+}
+.total-text { grid-area: text; background: $gray-index;}
+.total-total { grid-area: total; background: $gray-index;}
+.total-button { grid-area: button;}
+.total-delete { grid-area: delete;}
+
+.grid-products {
+  display: grid;
+  grid-template-columns: 12fr;
+  grid-row-gap: 15px;
+  grid-column-gap: 15px;
+  grid-template-rows: auto; 
+}
+.product {
+  background: $gray-fondo;
+  max-height: 150px;
+  border-radius: 4%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 10% 30% 25% 10% 25%;
+  grid-template-rows: auto;
+  grid-template-areas:
+  "image title  price   amount total";
+
+}
+.item0 {grid-area: marginL; grid-row: 1 / -1 ;} // marginL
+.itemx {grid-area: marginR; grid-row: 1 / -1 ;} //marginR
+
+.container-header { grid-area: header;}
+.container-product { grid-area: product;}
+
+
+.item-header1 {grid-area: icon; background: $gray-fondo; border-radius: 4%;}
+.item-header2 { grid-area: categorie; background: $gray-fondo; border-radius: 4%;}
+
+.container-products { grid-area: products;}
+.product-image { grid-area: image;}
+.product-title { grid-area: title;}
+.product-price { grid-area: price;}
+.product-amount { grid-area: amount;}
+.product-total {grid-area: total;}
+
+
+
+
+
+

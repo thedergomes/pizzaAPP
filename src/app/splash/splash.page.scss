@@ -22,3 +22,41 @@
 .item4 { grid-area:marginR;}
 // END GRID
 
+.item1 {
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: 1;
+  }
+.item2,
+.item3{
+    animation-duration: 4s;
+    animation-name: buttonhide;
+    animation-iteration-count: 1;
+}
+@keyframes buttonhide{
+/*     1% { transform: scale(0); opacity: 0;  }
+    100% { transform: scale(1); opacity: 1; } */
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+  
+@keyframes slidein {
+    from {
+
+        opacity: 0;
+        margin-top:100%;
+        width:100%
+    }
+
+    to {
+        display: unset;
+        margin-bottom:0%;
+        width:100%;
+    }
+}

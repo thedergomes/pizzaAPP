@@ -7,53 +7,94 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<body>
+<body>  
   <div class="grid fondo-1">
-      <div class="item0"></div>
-      <div class="item1">
-        <img class="logo-s" src="assets/logo.svg">
-      </div>
+    <div class="item0"></div>
+    <div class="item1"> 
+      <img class="logo-s" src="../../assets/logo.svg">
+    </div>
+    <div class="alert fontW-400 text-aling-center">
+    <!-- <div *ngIf="errors" class="alert fontW-400 text-aling-center"> -->
+    <!-- <div *ngIf="errors" > -->
+          <p *ngIf="error">Usuario o contraseña invalido</p>
+      <!-- <p *ngFor="let item of errors.email">{{item}}</p> -->
+      <!-- <p *ngFor="let item of errors.password">{{item}}</p> -->
+    <!-- </div> -->
+    </div>
+    <!-- <form [formGroup]="myform" (ngSubmit)="onSubmit(myform.value)"> -->
       <div class="item2">
-        <div class="item2-1">
-          <img class="icon iconPosition" src="assets/mail.svg">
-        </div>
-        <div class="item2-2">
-          <div class="container">
-            <div class="group">      
-              <input class="inputMail" type="mail" required>
-              <span class="highlight"></span>
-              <span class="bar barMail"></span>
-              <label>Correo</label>
-            </div>
-          </div>
-        </div>
+          <form class="grid-form" [formGroup]="myform" (ngSubmit)="login()">
+              <div class="form-item1 center-flex"> 
+                  <img class="icon iconPosition" src="assets/mail.svg">
+                </div>
+                <div class="form-item2 center-flex">
+                  <div class="container">
+                    <div class="group">      
+                      <input  class="inputMail" type="text" formControlName="email" required>
+                      <span class="highlight"></span>
+                      <label>Correo</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="alert1 pr" *ngIf="email.invalid && (email.dirty || email.touched || submitted)">
+                    <div class="IconError1 center-flex pa"> <img class="iconSmall" src="assets/alert.svg"> </div>
+                    <div class="textError1 left-flex pa" >
+                      <span *ngIf="email.errors.required"><small>Correo requerido.</small></span> 
+                      <span *ngIf="email.errors.email"><small>Correo invalido.</small></span> 
+                    </div>
+                </div>
+                <div class="hr"></div>
+                <div class="form-item3 center-flex"> 
+                    <img class="icon iconPosition" src="assets/lock.svg">
+                  </div>
+                  <div class="form-item4 center-flex">
+                    <div class="container">
+                      <div class="group">      
+                        <input  class="inputMail" type="password" formControlName="password" required>
+                        <span class="highlight"></span>
+                        <label>Contraseña</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="alert2 pr" *ngIf="password.invalid && (password.dirty || password.touched || submitted)">
+                      <div class="IconError1 center-flex pa">
+                         <img class="iconSmall" src="assets/alert.svg"> 
+                      </div>
+            
+                      <div class="textError1 left-flex pa">
+                          <span *ngIf="password.errors.required"><small>Contraseña requerida.</small></span> 
+                      </div>
+      
+                  </div>
+                  <div class="form-item5 center-flex">
+                    <button class="btn btn-white ">ENTRAR</button>
+                  </div>
+                  <div class="form-item6 center-flex">
+                      <span class="cursor" (click)="goToSignInPage()" >Crear Cuenta</span>
+                  </div>
+                  <div class="form-item7 center-flex">
+                      <span class="cursor" (click)="goToForgotPassPage()" >¿Olvidaste tu contraseña?</span>
+                  </div>
+        
+        
+        <!--       <input style="background-color: blue"type="text"  formControlName="email" required>
+        
+              <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)">
+                  <p *ngIf="email.errors.required">email required</p>
+                  <p *ngIf="email.errors.email">email invalido</p>
+              </div>
+        
+        
+              <input style="background-color: red" type="text" formControlName="password" required>
+        
+              <div *ngIf="password.invalid && (password.dirty || password.touched || submitted)">
+                  <p *ngIf="password.errors.required">password required</p>
+              </div>
+        
+              <button style="color: royalblue" type="submit">dale</button> -->
+              <!-- <p> form status {{myform.status}}</p> -->
+            </form>
       </div>
-      <div class="item3"><hr></div>  
-      <div class="item4">
-        <div class="item4-1">
-          <img class="icon iconPosition" src="assets/lock.svg">
-        </div>
-        <div class="item4-2">
-          <div class="container">
-            <div class="group">      
-              <input class="inputPassword" type="password" required>
-              <span class="highlight"></span>
-              <span class="bar barPassword"></span>
-              <label>Contraseña</label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="item5 mt-m">
-        <button class="btn btn-white">ENTRAR</button>
-      </div>
-      <div class="item6">
-        <a (click)="goToSignInPage()">Crear Cuenta</a>
-      </div>
-      <div class="item7">
-        <a (click)="goToForgotPassPage()">¿Olvidó su contraseña?</a> 
-      </div>
-      <div class="item8"></div>
-      <div class="item9"></div>
-    </div>  
-</body>
+    <div class="item4"></div>
+  </div>
+  

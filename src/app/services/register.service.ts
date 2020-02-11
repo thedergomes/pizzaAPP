@@ -1,17 +1,62 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-/* import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { map, retry, catchError } from 'rxjs/operators';
-import { environment } from '../../environments/environment' */
+import { environment } from '../../environments/environment';
+import { FormControl} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
-/*   apiRestURL : string = ''; 
-  RegisterURL : string = ''; 
- */
+  apiRestURL : string = '';
+  // headers: HttpHeaders;
+  // RegisterURL : string = ''; 
+
+  // apiUrl = 'https://jsonplaceholder.typicode.com';
+
+  constructor(public http: HttpClient) {
+    console.log('Hello RestServiceProvider Provider');
+    this.apiRestURL = environment.apiRestURL;
+  }
+
+  addUser(data) {
+    return new Promise((resolve, reject) => {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+      });
+      let options = {headers};
+      this.http.post(this.apiRestURL+'register', JSON.stringify(data), options)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  login(data){
+    return new Promise((resolve, reject) => {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+      });
+      let options = {headers};
+      this.http.post(this.apiRestURL+'login', JSON.stringify(data), options)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+}
+// input_name
+// input_email
+// input_password
+// input_confPassword
+
 /* 
   constructor( public http: HttpClient) { 
     this.apiRestURL = environment.apiRestURL 
@@ -38,5 +83,5 @@ export class RegisterService {
       }
         return throwError(errorMsg)
       } */
-}
+// }
 

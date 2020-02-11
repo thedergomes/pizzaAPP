@@ -1,0 +1,71 @@
+<ion-header>
+    <ion-toolbar class="headerColor">
+      <ion-buttons (click)="goToHomePage()">
+        <ion-button>
+          <ion-icon slot="icon-only" name="arrow-dropleft-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <body>
+      <div class="grid fondo-1">
+        <div class="item0"></div>
+        <div class="container-header fondo-2 h-150">
+          <div class="grid-header mt-15">
+              <div class="item-header1 center-flex pt-10 pb-10"><img  class="icon-header" src="assets/promotion.svg"></div>
+              <div class="item-header2 center-flex fontW-600 font-size-1-2em pt-10 pb-10">Promociones</div>
+          </div>
+        </div>
+        <div class="container-products">
+          <div class="grid-products">
+            <div class="ticket-header">
+                <div class="ticket-header-image center-flex"></div>
+                <div class="ticket-header-title text-aling-center">Producto</div>
+                <div class="ticket-header-price text-aling-center">Precio</div>
+                <div class="ticket-header-amount text-aling-center">Cant.</div>
+                <div class="ticket-header-total text-aling-center">Total</div>  
+            </div>
+
+            <!-- item a reproducir por producto  -->
+
+            <div class="product" *ngFor="let item of details">
+                <div class="product-image center-flex"><img class="w-80" src="assets/pizza.png"></div>
+                <div class="product-title text-aling-center">{{item.food_id}}</div>
+                <div class="product-price text-aling-center">precio</div>
+                <div class="product-amount text-aling-center">{{item.quantity}}</div>
+                <div class="product-total text-aling-center">300.000</div>               
+            </div>
+            <!-- <div class="product">
+                <div class="product-image center-flex"><img class="w-80" src="assets/pizza.png"></div>
+                <div class="product-title text-aling-center">Margarita doble</div>
+                <div class="product-price text-aling-center"> 150.000</div>
+                <div class="product-amount text-aling-center"> 2 </div>
+                <div class="product-total text-aling-center">300.000</div>               
+            </div>
+            <div class="product">
+                <div class="product-image center-flex"><img class="w-80" src="assets/pizza.png"></div>
+                <div class="product-title text-aling-center">Margarita doble</div>
+                <div class="product-price text-aling-center"> 150.000</div>
+                <div class="product-amount text-aling-center"> 2 </div>
+                <div class="product-total text-aling-center">300.000</div>               
+            </div>
+            <div class="product">
+                <div class="product-image center-flex"><img class="w-80" src="assets/pizza.png"></div>
+                <div class="product-title text-aling-center">Margarita doble</div>
+                <div class="product-price text-aling-center"> 150.000</div>
+                <div class="product-amount text-aling-center"> 2 </div>
+                <div class="product-total text-aling-center">300.000</div>               
+            </div> -->
+            <!-- item a reproducir por producto  -->
+          </div>
+          <div class="grid-total">
+            <div class="total-text">Total:</div>
+            <div class="total-total">2500,00</div> <!-- PARA INDICAR TOTAL DE COMPRA -->
+            <div class="total-button">
+              <button class="btn btn-white btn-block">Confirmar Pedido</button>
+            </div>
+          </div>
+        </div>
+        <div class="itemx"></div>
+      </div>
+  </body>

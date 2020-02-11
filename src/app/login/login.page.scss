@@ -1,34 +1,61 @@
 @import '../../global.scss';
-
-.headerColor{
-    --background: #0000002b;
-}
-.item1 {
+.item1{
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
-.item2-1,
-.item4-1 {
-    display: flex;
-    justify-content: right;
-    align-items: center
+//SOLO GRID
+.grid{
+    display: grid;
+    grid-template-columns: 10% 11fr 10%;
+    grid-template-rows: 25vh repeat(5, auto);
+    grid-template-areas: 
+        'marginL logo marginR'
+        'marginL info marginR'
+        'marginL form marginR'; 
 }
-.item2-2,
-.item3,
-.item4-2,
-.item5,
-.item6,
-.item7 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.grid-form{
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-columns: 50px 83.5%;
+    grid-template-areas:
+        'mailIcon mailInput'
+        'alert1 alert1'
+        'hr hr'
+        'passwordIcon passwordInput'
+        'alert2 alert2'
+        'button button'
+        'create create'
+        'forgot forgot';
 }
-.item3 hr {
-    border-bottom:solid 2px gray;
-    width: 84%;
+.alert1,
+.alert2 {
+    display: grid;
+    grid-template-columns: 50px 83.5%;
+    grid-template-areas:
+        'IconError1 textError1';
 }
+
+.item0 { grid-area: marginL;}
+.item1 { grid-area: logo;}
+.alert { grid-area: info;}
+.item2 { grid-area: form;}
+    .form-item1 { grid-area: mailIcon;}
+    .form-item2 { grid-area: mailInput;}
+    .alert1 { grid-area: alert1;}
+        .IconError1 { grid-area:IconError1; width: 100%; bottom: 0; left: 0;}
+        .textError1 { grid-area:textError1; bottom: 0; left: 0;}
+    .hr {grid-area: hr; background: $ColorInput; width: 100%; height: 2px;}
+    .form-item3 { grid-area: passwordIcon;}
+    .form-item4 { grid-area: passwordInput;}
+    .alert2 { grid-area: alert2;}
+    .form-item5 {grid-area: button; margin-top:20px;}
+    .form-item6 { grid-area: create; text-align: center; color: #fff; margin-top:20px;}
+    .form-item7 { grid-area: forgot; text-align: center; margin-top:20px;}
+
+.item4 { grid-area: marginR;}
+
+
 .container { 
     padding: 10px 20px 0 20px;
 }
@@ -117,53 +144,10 @@ label {
 .iconPosition{
     margin-top: 10px;
 }
-.item6 a,
-.item7 a{
+a{
     cursor: pointer;
     color: $fontColor;
     font-weight: 400;
     text-decoration: none;
     font-size: 1rem;
-}
-// GRID
-.grid{
-    display: grid;
-    grid-template-rows:  repeat(7, 0.5fr) 4fr;
-    grid-template-columns: 10% repeat(4, auto) 10%;
-    grid-template-areas: 
-    "marginL        logo        logo        logo        logo        marginR"
-    "marginL        mail        mail        mail        mail        marginR"
-    "marginL        gap         gap         gap         gap         marginR"
-    "marginL        password    password    password    password    marginR"
-    "marginL        button      button      button      button      marginR"
-    "marginL        create      create      create      create      marginR"
-    "marginL        forgot      forgot      forgot      forgot      marginR"
-    "marginL        footer      footer      footer      footer      marginR";
-
-}
-.item2{
-    display: grid;
-    grid-template-columns: 50px 11fr;
-    grid-template-rows: auto;
-}
-.item4{
-    display: grid;
-    grid-template-columns: 50px 11fr;
-    grid-auto-rows: auto;
-}
-.item0 { grid-area: marginL;}
-.item7 { grid-area: forgot;}
-.item1 { grid-area: logo;}
-.item2 { grid-area: mail;}
-    .item2-1{ grid-column: 1/2;}
-    .item2-2{ grid-column: 2/-1;}
-.item3 { grid-area: gap; }
-.item4 { grid-area: password;}
-    .item4-1{ grid-column: 1/2;}
-    .item4-2{ grid-column: 2/-1;}
-.item5 { grid-area: button;}
-.item6 { grid-area: create;}
-.item7 { grid-area: forgot;}
-.item8 { grid-area: marginR;}
-.item9 { grid-area: footer;}
-// END GRID
+} 

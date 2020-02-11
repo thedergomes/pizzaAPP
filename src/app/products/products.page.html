@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar class="headerColor">
+      <ion-buttons (click)="goToMenuPage ()">
+        <ion-button>
+          <ion-icon slot="icon-only" name="arrow-dropleft-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <body>
+      <div class="grid fondo-1">
+        <div class="item0">L</div>
+        <div class="container-header fondo-2 h-150">
+          <div class="grid-header mt-15">
+              <!-- <div class="item-header1 center-flex pt-10 pb-10"><img  class="w-90" src="assets/pizza.png"></div> -->
+              <div class="item-header1 center-flex pt-10 pb-10"><img  class="w-90 m-h-50"  [src]=category.image></div>
+              <!-- <div class="item-header2 center-flex fontW-600 font-size-2em pt-10 pb-10">Pizzas</div> -->
+              <div class="item-header2 center-flex fontW-600 font-size-2em pt-10 pb-10">{{category.name}}</div>
+          </div>
+        </div>
+        <div class="container-products">
+          <div class="grid-products">
+            <!-- item a reproducir por producto  -->
+            <div class="product" *ngFor="let item of products;" (click)="presentAlert(item)">
+                <div class="product-image center-flex"><img class="w-80" [src]=item.image></div>
+                <div class="product-tittle text-aling-center">{{item.name}}</div>
+                <div class="product-price text-aling-right">{{item.price}}</div>
+                <!-- <div class="product-image center-flex"><img class="w-80" src="assets/pizza.png"></div> -->
+                <!-- <div class="product-tittle text-aling-center">Margarita doble</div> -->
+                <!-- <div class="product-price text-aling-right"> 200$</div> -->
+            </div>
+            <!-- item a reproducir por producto  -->
+          </div>
+        </div>
+        <div class="itemx"></div>
+      </div>
+  </body>
+
+  <style>
+
+  </style>

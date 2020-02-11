@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar class="headerColor">
+      <ion-buttons (click)="goToHomePage()">
+        <ion-button>
+          <ion-icon slot="icon-only" name="arrow-dropleft-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <body>
+      <div class="grid fondo-1">
+          <div class="item0 fondo-2 ">
+                <div class="grid-header mt-xl">
+                    <div class="header-item0"></div>
+                        <div class="header-item1 h-100 position" (click)="goToMenuPage()">
+                            <div> <img class="icon-header2" src="assets/menu_active.svg"> </div>
+                            <div class="menuTextStyle active">Menú</div>
+                        </div>
+                    <div class="header-item2 h-100 position">
+                        <div> <img class="icon-header2" src="assets/reserve.svg"> </div>
+                        <div class="menuTextStyle">Reservar</div>
+                    </div>
+                </div>
+          </div>
+          <div class="item1">
+            <div *ngFor="let item of categoriesList"  class="grid-menu" (click)="goToProductsPage(item)">
+              <div class="menu-item1 center-flex w-100 h-100"><img class="icon-menu" src="{{item.image}}" alt=""></div>
+              <div class="menu-item1-2 left-flex h-100 fontW-600">{{item.name}}</div>
+              <div class="menu-item1-3 w-100 center-flex h-100"><img class="icon" src="assets/next.svg" ></div>    
+            </div>
+          </div>
+          <div class="itemy"></div>
+          <div class="itemx"></div>
+      </div>
+  </body>
+  

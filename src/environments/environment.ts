@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiRestURL: ' http://localhost/',
-  RegisterURL: 'public/index.php/api/v1/register'
+  // apiRestURL: 'http://localhost/PizzaApi/public/index.php/api/v1/',
+  apiRestURL:'http://192.168.250.5/PizzaApi/public/index.php/api/v1/'
 };
 
 /*

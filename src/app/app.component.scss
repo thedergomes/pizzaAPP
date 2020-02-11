@@ -1,0 +1,28 @@
+ion-menu{
+    ion-content{
+        --ion-background-color: #1e1a1aeb;
+    }
+}
+
+ion-split-pane{ 
+    --border: none !important;
+    ion-menu{
+     --ion-background: orange !important; 
+        ion-content{            
+            --background: black !important; 
+            ion-list-header{ 
+                --background: green !important;
+                --color: #FFFFFF !important;   
+            }
+            ion-item{
+                --background: black !important;
+                 --color: #FFFFFF !important;
+                 ion-icon{ padding-right: 10px !important; }
+            }
+        }
+    }
+}
+
+.toolbar-container{
+    background-color: Red;
+}
