@@ -45,11 +45,21 @@ export class Product
     image:string;
     description:string;
     // price:string;
-    price:number;
+    // price:number;
+    prices:Labels;
+    labels:Labels;
+    
     size:string;
     category:Category;
 
     quantity:number;
+}
+
+export class Labels 
+{
+    small:string;
+    medium:string;
+    large:string;
 }
 
 

@@ -21,7 +21,9 @@
         <div class="container-products">
           <div class="grid-products">
             <!-- item a reproducir por producto  -->
-            <div class="product" *ngFor="let item of products;" (click)="presentAlert(item)">
+            presentModal
+            <!-- <div class="product" *ngFor="let item of products;" (click)="presentAlert(item)"> -->
+            <div class="product" *ngFor="let item of products;" (click)="presentModal(item)">
                 <div class="product-image center-flex"><img class="w-80" [src]=item.image></div>
                 <div class="product-tittle text-aling-center">{{item.name}}</div>
                 <div class="product-price text-aling-right">{{item.price}}</div>

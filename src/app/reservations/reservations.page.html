@@ -1,9 +1,41 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>reservations</ion-title>
+  <ion-toolbar class="headerColor">
+    <ion-buttons (click)="goToHomePage ()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="arrow-dropleft-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<body>
+    <div class="grid fondo-1">
+      <div class="item0"></div>
+      <div class="container-header fondo-2 h-150">
+        <div class="grid-header mt-15">
+            <div class="item-header1 center-flex pt-10 pb-10"><img  class="icon-header" src="assets/history.svg"></div>
+            <div class="item-header2 center-flex fontW-600 font-size-1-2em pt-10 pb-10">Reservaciones</div>
+        </div>
+      </div>
+      <div class="container-orders">
+        <div class="grid-orders">
+          <div class="order-header">
+              <div class="order-header-order center-flex">Orden</div>
+              <div class="order-header-time text-aling-center">Fecha</div>
+              <div class="order-header-status text-aling-center">Estado</div>
+          </div>
 
-<ion-content>
+          <!-- previo de las ordenes  -->
+          <div class="order" *ngFor="let order of Orders;"  (click)="openModal(order.details, order.order)">
+              <div class="order-order center-flex">{{order.order}}</div>
+              <div class="order-time center-flex">{{order.created_at |  date:"dd/MM/yy"}}</div>
+              <div class="order-status center-flex status" [ngClass]="{'status-green': order.status == 'accepted', 'status-orange': order.status == 'pending', 'status-': false}">{{order.status}}</div>
+          </div>
+          <!-- previo de las ordenes  -->
+        </div>
+      </div>
+      <div class="itemx"></div>
+    </div>
 
-</ion-content>
+
+   
+</body>

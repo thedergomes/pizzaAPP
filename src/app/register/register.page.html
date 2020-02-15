@@ -68,16 +68,17 @@
               <input  class="inputMail" type="text" formControlName="name" required>
               <span class="highlight"></span>
               <span class="bar barMail"></span>
-              <label>Nombre</label>
+              <label>Nombre de usuario</label>
             </div>
           </div>
         </div>
         <div class="alert1 pr" *ngIf="name.invalid && (name.dirty || name.touched || submitted)">
             <div class="IconError1 center-flex pa"> <img class="iconSmall" src="assets/alert.svg"> </div>
             <div class="textError1 left-flex pa" >
-              <span *ngIf="name.errors.required"><small>Nombre requerido.</small></span> 
+              <span *ngIf="name.errors.required"><small>Nombre de usuario requerido.</small></span> 
             </div>
         </div>
+        
         <div class="form-item3 bb center-flex"> 
             <img class="icon iconPosition" src="assets/mail.svg">
         </div>
@@ -117,6 +118,7 @@
               <span *ngIf="password.errors.required"><small>Contraseña requerida.</small></span> 
             </div>
         </div>
+
         <div class="form-item7 bb center-flex"> 
           <img class="icon iconPosition" src="assets/lock.svg">
         </div>
@@ -135,12 +137,55 @@
             <div class="textError1 left-flex pa" >
               <span *ngIf="c_password.errors.required"><small>Confirmacion de contraseña requerida.</small></span> 
               <span *ngIf="myform.errors?.notSame && !c_password.invalid && (c_password.dirty || c_password.touched || submitted)">password no coincide</span>
-
             </div>
-            
         </div>
+
+
+        <!-- <div class="form-item8 bb center-flex"> 
+          <img class="icon iconPosition" src="assets/lock.svg">
+        </div> -->
+        <div class="form-item9 bb center-flex">
+          <div class="container">
+            <div class="group">      
+              <input  class="inputMail" type="text" formControlName="question" required>
+              <span class="highlight"></span>
+              <span class="bar barMail"></span>
+              <label>Pregunta secreta</label>
+            </div>
+          </div>
+        </div>
+        <div class="alert5 pr" *ngIf="question.invalid && (question.dirty || question.touched || submitted)">
+          <div class="IconError1 center-flex pa"> <img class="iconSmall" src="assets/alert.svg"> </div>
+          <div class="textError1 left-flex pa" >
+            <span *ngIf="question.errors.required"><small>Pregunta secreta requerida.</small></span> 
+          </div>
+        </div>
+
+        <div class="form-item10 bb center-flex">
+          <div class="container">
+            <div class="group">      
+              <input  class="inputMail" type="text" formControlName="answer" required>
+              <span class="highlight"></span>
+              <span class="bar barMail"></span>
+              <label>Respuesta secreta</label>
+            </div>
+          </div>
+        </div>
+        <div class="alert6 pr" *ngIf="answer.invalid && (answer.dirty || answer.touched || submitted)">
+          <div class="IconError1 center-flex pa"> <img class="iconSmall" src="assets/alert.svg"> </div>
+          <div class="textError1 left-flex pa" >
+            <span *ngIf="answer.errors.required"><small>Respuesta secreta requerida.</small></span> 
+          </div>
+        </div>
+
+
+        <!-- <input  class="inputMail" type="text" formControlName="question" required> -->
+        <!-- <input  class="inputMail" type="text" formControlName="answer" required> -->
+
+
+
+
         <div class="form-item9 center-flex">
-            <!-- <button (click)="addUser()" class="btn btn-white">Registrarse</button> -->
             <button class="btn btn-white">Registrarse</button>
         </div>
       </form>

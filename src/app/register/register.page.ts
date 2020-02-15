@@ -59,6 +59,9 @@ export class RegisterPage implements OnInit {
       email:new FormControl('', [Validators.required, Validators.email]),
       password:new FormControl('', Validators.required),
       c_password:new FormControl('', Validators.required),
+      question:new FormControl('', Validators.required),
+      answer:new FormControl('', Validators.required),
+      
     },{
         validator: notSame
     });
@@ -93,8 +96,12 @@ export class RegisterPage implements OnInit {
     loading.present();
 
     this.restProvider.addUser(this.myform.value)
-    .then(data => {
+    .then(data => 
+    {
       console.log(data);
+      localStorage.setItem("token", (data as any).token);
+      this.navCtrl.navigateForward('home');
+
     }).catch((error) => {
       this.errores = error.error.error;
       // let errores = error.error.error;
@@ -122,5 +129,8 @@ export class RegisterPage implements OnInit {
   get email(){ return this.myform.get('email'); }
   get password(){ return this.myform.get('password'); }
   get c_password(){ return this.myform.get('c_password'); }
-
+  get question(){ return this.myform.get('question'); }
+  get answer(){ return this.myform.get('answer'); }
+  
+  
 }

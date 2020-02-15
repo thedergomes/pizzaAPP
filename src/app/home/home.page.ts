@@ -32,5 +32,16 @@ export class HomePage {
   goToSettingPage() {
     this.navCtrl.navigateForward('setting');
   }
+
+  singOut() 
+  {
+    localStorage.removeItem("token");
+    localStorage.removeItem("details");
+
+    console.log("singOut");
+    // this.token = null;
+
+    this.navCtrl.navigateForward('splash');
+  }
 }
 
