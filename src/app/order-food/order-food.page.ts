@@ -16,6 +16,7 @@ export class OrderFoodPage implements OnInit {
   size: string;
   // quantity: number = 0;
   quantity: number = 1;
+  user:any = JSON.parse(localStorage.getItem('me'));
 
   constructor(
     private navCtrl : NavController, 

@@ -12,14 +12,18 @@ import { MenusService } from '../services/menus.service';
 })
 export class TicketPage implements OnInit {
   // details:Array<Detail>;
-  details:Array<Product>;
+  details:Array<Product> = new Array<Product>();
   total:number = 0;
+  user:any = JSON.parse(localStorage.getItem('me'));
 
   constructor(public navCtrl: NavController, 
     private menus:MenusService,
     private alertC:AlertController) 
   { 
-    this.details = JSON.parse(localStorage.getItem('details'));
+    // this.details = JSON.parse(localStorage.getItem('details-'+this.user.id));
+    let result = JSON.parse(localStorage.getItem('details-'+this.user.id));
+    this.details = result != null ? result : [];
+    
     console.log(this.details);
     if (this.details != null) {
       this.details.forEach(element => {
@@ -47,13 +51,13 @@ export class TicketPage implements OnInit {
     this.details.forEach(element => {
       this.total = this.total + element.prices[element.size] * element.quantity;
     });
-    localStorage.setItem('details',JSON.stringify(this.details));
+    localStorage.setItem('details-'+this.user.id,JSON.stringify(this.details));
   }
 
   cancelAll(){
     this.details.splice(0, this.details.length);
     this.total = 0;
-    localStorage.removeItem('details');
+    localStorage.removeItem('details-'+this.user.id);
   }
 
   confirm(){
@@ -80,7 +84,7 @@ export class TicketPage implements OnInit {
       .then(async data => {
         console.log(data);
 
-        localStorage.removeItem('details');
+        localStorage.removeItem('details-'+this.user.id);
 
         await this.presetAlert();
         this.details = null;

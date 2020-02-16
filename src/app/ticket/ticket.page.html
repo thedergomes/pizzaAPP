@@ -72,10 +72,10 @@
             <!-- <div class="total-total">2500,00</div> PARA INDICAR TOTAL DE COMPRA -->
             <div class="total-total">{{ total }}</div> <!-- PARA INDICAR TOTAL DE COMPRA -->
             <div class="total-delete ">
-              <button (click)="cancelAll()" class="font-size07 btn btn-red btn-block">Cancelar pedido</button>
+              <button *ngIf="details.length > 0" (click)="cancelAll()" class="font-size07 btn btn-red btn-block">Cancelar pedido</button>
             </div>
             <div class="total-button ml-10">
-              <button (click)="confirm()" class="font-size07 btn btn-white btn-block">Confirmar pedido</button>
+              <button *ngIf="details.length > 0" (click)="confirm()" class="font-size07 btn btn-white btn-block">Confirmar pedido</button>
             </div>
           </div>
         </div>

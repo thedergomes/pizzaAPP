@@ -71,6 +71,33 @@ export class LoginPage implements OnInit {
     //   cssClass:''
     // });
 
+
+    async me() {
+      try {
+        let data = await this.restProvider.dataUser();
+        localStorage.setItem("me", JSON.stringify(data));
+        console.log(data);
+      } catch (error) {
+        console.log(error.error.error);
+      }
+
+
+      // this.restProvider.dataUser()
+      // .then(data => {
+      //   console.log("then");
+      //   console.log(data);
+
+      //   localStorage.setItem("me", JSON.stringify(data));
+
+      //   // this.navCtrl.navigateForward('home');
+      // }).catch(error => {
+      //   this.error = true;
+      //   console.log(error.error.error);
+      // }).finally(()=>{
+      //   // loading.dismiss();
+      // });
+    }
+
     async login() {
       this.submitted = true;
       this.error = false;
@@ -98,11 +125,12 @@ export class LoginPage implements OnInit {
       let json = this.myform.value;
       console.log(json);
       this.restProvider.login(json)
-      .then(data => {
+      .then(async data => {
         console.log("then");
         console.log(data);
 
         localStorage.setItem("token", (data as any).token);
+        await this.me();
         // console.log((data as any).token);
         // console.log(this.restProvider.dataUser());
         this.navCtrl.navigateForward('home');
