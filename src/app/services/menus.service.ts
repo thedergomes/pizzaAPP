@@ -64,7 +64,8 @@ export class MenusService {
     });
   }
 
-  confirmOrder(body:Array<Detail>):Promise<Order>
+  // confirmOrder(body:Array<Detail>):Promise<Order>
+  confirmOrder(body:any):Promise<Order>
   {
     return new Promise((resolve, reject) => {
       let headers = new HttpHeaders({
@@ -72,11 +73,7 @@ export class MenusService {
         'Authorization': 'Bearer '+localStorage.getItem('token')
       });
       let options = {headers};
-      this.http.post<Order>(this.apiRestURL+'orders', 
-      { 
-        type:'pickup',
-        details:body 
-      }, options)
+      this.http.post<Order>(this.apiRestURL+'orders', body, options)
         .subscribe(res => {
           resolve(res);
         }, (err) => {
@@ -85,5 +82,21 @@ export class MenusService {
     });
   }
 
+  cancelOrder(orderId:number):Promise<any>
+  {
+    return new Promise((resolve, reject) => {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Bearer '+localStorage.getItem('token')
+      });
+      let options = {headers};
+      this.http.delete(this.apiRestURL+'orders/'+orderId, options)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 
 }

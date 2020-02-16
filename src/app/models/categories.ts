@@ -46,21 +46,21 @@ export class Product
     description:string;
     // price:string;
     // price:number;
-    prices:Labels;
-    labels:Labels;
-    
+    prices:any;
+    labels:any;
+
     size:string;
     category:Category;
 
     quantity:number;
 }
 
-export class Labels 
-{
-    small:string;
-    medium:string;
-    large:string;
-}
+// export class Labels 
+// {
+//     small:string;
+//     medium:string;
+//     large:string;
+// }
 
 
 export class Order

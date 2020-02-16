@@ -29,16 +29,20 @@
             <!-- item a reproducir por producto  -->
 
             <div class="product" *ngFor="let item of details; index as i;">
+                <button (click)="delete(i)" class="font-size07 btn btn-red btn-block">Eliminar</button>
+
                 <div class="product-image center-flex"><img class="w-80" src="assets/pizza.png"></div>
                 <!-- <div class="product-title text-aling-center">{{item.food_id}}</div> -->
                 <div class="product-title text-aling-center">{{item.name}}</div>
                 <!-- <div class="product-price text-aling-center">precio</div> -->
-                <div class="product-price text-aling-center">{{item.price}}</div>
+                <!-- <div class="product-price text-aling-center">{{item.price}}</div> -->
+                <div class="product-price text-aling-center">{{item.prices[item.size]}}</div>
+                
                 <div class="product-amount text-aling-center">{{item.quantity}}</div>
                 <!-- <div class="product-total text-aling-center">300.000</div>                -->
-                <div class="product-total text-aling-center">{{item.quantity*item.price}}</div>  
-                
-                
+                <!-- <div class="product-total text-aling-center">{{item.quantity*item.price}}</div>   -->
+                <!-- <div class="product-total text-aling-center">{{item.quantity * item.prices[item.size]}}</div>   -->
+                <div class="product-total text-aling-center">{{item.quantity * item.prices[item.size]}}</div>  
             </div>
             <!-- <div class="product">
                 <div class="product-image center-flex"><img class="w-80" src="assets/pizza.png"></div>
@@ -68,7 +72,7 @@
             <!-- <div class="total-total">2500,00</div> PARA INDICAR TOTAL DE COMPRA -->
             <div class="total-total">{{ total }}</div> <!-- PARA INDICAR TOTAL DE COMPRA -->
             <div class="total-delete ">
-              <button (click)="delete()" class="font-size07 btn btn-red btn-block">Cancelar pedido</button>
+              <button (click)="cancelAll()" class="font-size07 btn btn-red btn-block">Cancelar pedido</button>
             </div>
             <div class="total-button ml-10">
               <button (click)="confirm()" class="font-size07 btn btn-white btn-block">Confirmar pedido</button>

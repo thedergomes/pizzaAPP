@@ -9,7 +9,9 @@ import { ModalController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
 import { Detail } from '../models/detail';
-import { DetailsModalPage } from '../details-modal/details-modal.page';
+// import { DetailsModalPage } from '../details-modal/details-modal.page';
+// import { OrderFoodPage } from '../order-food/order-food.page';
+import { NavigationExtras } from '@angular/router';
 
 
 
@@ -23,7 +25,8 @@ export class ProductsPage implements OnInit {
   category:Category;
   products:Array<Product>;
 
-  constructor(private navCtrl : NavController, 
+  constructor(
+    private navCtrl : NavController, 
     private route:ActivatedRoute, 
     private router:Router, 
     private menus:MenusService,
@@ -58,7 +61,13 @@ export class ProductsPage implements OnInit {
   // }
 
   async presentAlert(item:Product) {
+    let param:NavigationExtras={
+      queryParams:{
+        product:JSON.stringify(item)
+      }
+    }
 
+    this.navCtrl.navigateForward('order-food', param);
 
   //   const alert = await this.alertController.create({
   //     header: item.name,

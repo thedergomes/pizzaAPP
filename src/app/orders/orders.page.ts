@@ -35,6 +35,21 @@ export class OrdersPage implements OnInit {
     return await modal.present();
   }
 
+  cancel(i:number)
+  {
+    this.menus.cancelOrder(i)
+    .then(async data => 
+    {
+      console.log(data);
+      // this.Orders = data.data;
+
+      console.log(this.Orders);
+      
+    }).catch(error => {
+      console.log(error);
+    });
+  }
+
   order(){
     // if (this.details == null) {
     //   return;

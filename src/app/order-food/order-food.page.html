@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>orderFood</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <select [(ngModel)] = "size">
+    <option *ngFor="let key of ObjectKeys;" [value]="key">
+        {{product.labels[key]}}
+    </option>
+  </select>
+  <input type="number" min="1" placeholder="amount" [(ngModel)] = "quantity" style="background-color: black;">
+  <h1>{{total}}</h1>
+
+  <button (click)="add()" style="background-color: green;">agregar</button>
+  <button (click)="close()" style="background-color: red;">cancelar</button>
+
+</ion-content>
