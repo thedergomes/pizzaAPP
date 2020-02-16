@@ -76,7 +76,15 @@ export class RegisterPage implements OnInit {
   //   console.log(pass === c_pass);
   //   return pass === c_pass ? null : { notSame:true }
   // }
-
+  async me() {
+    try {
+      let data = await this.restProvider.dataUser();
+      localStorage.setItem("me", JSON.stringify(data));
+      console.log(data);
+    } catch (error) {
+      console.log(error.error.error);
+    }
+  }
 
   async addUser() {
     console.log(this.myform.value);
@@ -96,10 +104,12 @@ export class RegisterPage implements OnInit {
     loading.present();
 
     this.restProvider.addUser(this.myform.value)
-    .then(data => 
+    .then(async data => 
     {
       console.log(data);
       localStorage.setItem("token", (data as any).token);
+      await this.me();
+      
       this.navCtrl.navigateForward('home');
 
     }).catch((error) => {
