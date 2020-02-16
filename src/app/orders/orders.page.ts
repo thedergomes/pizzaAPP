@@ -4,7 +4,7 @@ import { NavController, ModalController} from '@ionic/angular';
 import { MenusService } from '../services/menus.service';
 import { Order } from '../models/categories';
 import { DetailsModalPage } from '../details-modal/details-modal.page'
- 
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-orders',
@@ -18,9 +18,22 @@ export class OrdersPage implements OnInit {
 
   constructor(public navCtrl : NavController,
     private menus:MenusService,
-    public modalController: ModalController) {
+    public modalController: ModalController,
+    public alertController: AlertController
+    ) {
       this.order();
     // this.details = JSON.parse(localStorage.getItem('details'));
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      // header: 'Alert',
+      // subHeader: 'Subtitle',
+      message: 'Cancelacion Exitosa',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
   async openModal(details, ordenNumber) {
@@ -35,11 +48,28 @@ export class OrdersPage implements OnInit {
     return await modal.present();
   }
 
-  cancel(i:number)
+  cancel(id:number, i:number)
   {
-    this.menus.cancelOrder(i)
+    this.menus.cancelOrder(id)
     .then(async data => 
     {
+      let index = this.Orders.indexOf(data);
+      console.log("index deleted "+index);
+      // if (index > -1)
+      // {
+      //   // this.Orders.splice(i, 1);
+      //   this.Orders.splice(index, 1);
+      // }
+
+      console.log('before');
+      console.log(this.Orders);
+
+      this.Orders = this.Orders.filter(elem => elem.order != id);
+      // console.log(i);
+      console.log('after');
+      console.log(this.Orders);
+
+      await this.presentAlert();
       console.log(data);
       // this.Orders = data.data;
 
@@ -51,26 +81,12 @@ export class OrdersPage implements OnInit {
   }
 
   order(){
-    // if (this.details == null) {
-    //   return;
-    // }
-
-    // let orders = new Array<Detail>();
-
-    // this.details.forEach(element => {
-    //   let detail = new Detail();
-    //   detail.food_id = element.id;
-    //   detail.quantity = element.quantity;
-      
-    //   orders.push(detail);
-    // });
-
-    // console.log(orders);
     this.menus.myOrder()
-      .then(async data => {
+      .then(async data => 
+      {
+
         console.log(data);
         this.Orders = data.data;
-
         console.log(this.Orders);
 
         // localStorage.removeItem('details');
@@ -81,7 +97,6 @@ export class OrdersPage implements OnInit {
         
       }).catch(error => {
         console.log(error);
-        // this.error = true;
         // console.log(error.error.error);
       });
   }

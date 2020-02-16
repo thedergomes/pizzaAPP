@@ -29,7 +29,8 @@
                 <div class="order-order center-flex">{{order.order}}</div>
                 <div class="order-time center-flex">{{order.created_at |  date:"dd/MM/yy"}}</div>
                 <div class="order-status center-flex status" [ngClass]="{'status-green': order.status == 'accepted', 'status-orange': order.status == 'pending', 'status-': false}">{{order.status}}</div>
-                <button *ngIf="order.status == 'pending'" (click)="cancel(order.order);$event.stopPropagation()" style="background-color: red" >Cancelar</button>
+                <!-- <button *ngIf="order.status == 'pending'" (click)="cancel(order.order);$event.stopPropagation()" style="background-color: red" >Cancelar</button> -->
+                <button *ngIf="order.status == 'pending'" (click)="cancel(order.order, i);$event.stopPropagation()" style="background-color: red" >Cancelar</button>
               </div>
             <!-- previo de las ordenes  -->
           </div>

@@ -99,4 +99,27 @@ export class MenusService {
     });
   }
 
+
+  reservation(body:any):Promise<any>
+  {
+    // {
+    //   date:number,
+    //   seats:number,
+    //   comment:String,
+    // }
+
+    return new Promise((resolve, reject) => {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Bearer '+localStorage.getItem('token')
+      });
+      let options = {headers};
+      this.http.post<any>(this.apiRestURL+'reservations', body, options)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }

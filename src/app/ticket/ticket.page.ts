@@ -42,6 +42,7 @@ export class TicketPage implements OnInit {
   delete(i:number){
     // this.total = this.total - this.details[i].price * this.details[i].quantity;
     this.details.splice(i, 1);
+    
     this.total = 0;
     this.details.forEach(element => {
       this.total = this.total + element.prices[element.size] * element.quantity;

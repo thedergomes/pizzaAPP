@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { DetailsModalPageModule } from './details-modal/details-modal.module';
+import { AddReservationPageModule } from './add-reservation/add-reservation.module';
 
 // import { ReactiveFormsModule } from '@angular/forms';
 
@@ -25,7 +26,9 @@ import { DetailsModalPageModule } from './details-modal/details-modal.module';
     HttpClientModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    DetailsModalPageModule
+    DetailsModalPageModule,
+    
+    AddReservationPageModule
   ],
   providers: [
     StatusBar,

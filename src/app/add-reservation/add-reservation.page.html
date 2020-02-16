@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>addReservation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <input type="text" placeholder="Fecha de la reserva" style="background-color: black" [(ngModel)]="date">
+  <input type="number" min="1" placeholder="Numero de asientos" style="background-color: black" [(ngModel)]="seats">
+  <span style="color: black">Opcional</span>
+  <input type="text" placeholder="Comentarios" style="background-color: black" [(ngModel)]="comment">
+  <button (click)="addReservation()" style="background: green">Reservar</button>
+  <button (click)="cancel()" style="background: red">Cancelar</button>
+</ion-content>

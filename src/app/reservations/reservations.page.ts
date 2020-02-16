@@ -3,6 +3,10 @@ import { NavController, AlertController} from '@ionic/angular';
 import { ReservationService } from '../services/reservation.service';
 import { Reservation } from '../models/reservation';
 
+import { ModalController } from '@ionic/angular';
+import { AddReservationPage } from '../add-reservation/add-reservation.page';
+import { LoadingController } from '@ionic/angular';
+
 @Component({
   selector: 'app-reservations',
   templateUrl: './reservations.page.html',
@@ -10,9 +14,14 @@ import { Reservation } from '../models/reservation';
 })
 export class ReservationsPage implements OnInit {
  
-  Reservations:Array<Reservation>;
+  listReservation:Array<Reservation> = new Array<Reservation>();
 
-  constructor( private navCtrl: NavController, private reservationService : ReservationService ) { 
+  constructor( 
+    private navCtrl: NavController, 
+    private reservationService : ReservationService ,
+    public modalController: ModalController,
+    public loadingController: LoadingController
+    ) { 
   }
   goToHomePage() {
     this.navCtrl.navigateForward('home');  
@@ -20,6 +29,40 @@ export class ReservationsPage implements OnInit {
   ngOnInit() {
     this.reservations();
   }
+
+  // async presentLoading() {
+  //   const loading = await this.loadingController.create({
+  //     message: 'Por favor espere...',
+  //   });
+  //   await loading.present();
+  // }
+
+  async addReservations(){
+    const modal = await this.modalController.create({
+      component: AddReservationPage
+    });
+
+    await modal.present();
+    let a = await modal.onWillDismiss();
+    this.listReservation.push(a.data as Reservation);
+    console.log(a);
+
+  }
+
+  cancel(id){
+    this.reservationService.deleteReservation(id)
+      .then(async data => 
+      {
+      this.listReservation = this.listReservation.filter(elem => elem.id != id);
+        // console.log(data);
+
+      }).catch(error => {
+        console.log(error);
+      });
+  }
+
+
+
   reservations(){
     // if (this.details == null) {
     //   return;
@@ -39,9 +82,10 @@ export class ReservationsPage implements OnInit {
     this.reservationService.getReservation()
       .then(async data => {
         console.log(data);
-        this.Reservations = data;
+        console.log(this.listReservation);
+        this.listReservation = data.data;
 
-        console.log(this.Reservations);
+        console.log(this.listReservation);
 
         // localStorage.removeItem('details');
 
