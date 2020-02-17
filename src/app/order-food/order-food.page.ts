@@ -40,7 +40,9 @@ export class OrderFoodPage implements OnInit {
   {
     // item.quantity = +data.quantity;
     // localStorage.removeItem('details');
-    let list = localStorage.getItem('details');
+    // let list = localStorage.getItem('details');
+    let list = localStorage.getItem('details-'+this.user.id);
+    
     let details:Array<Product>;
 
     if (list != null) {
@@ -53,7 +55,7 @@ export class OrderFoodPage implements OnInit {
     this.product.quantity = this.quantity;
     // console.log(this.product);
     details.push(this.product);
-    localStorage.setItem('details', JSON.stringify(details));
+    localStorage.setItem('details-'+this.user.id, JSON.stringify(details));
     this.navCtrl.back();
   }
 
