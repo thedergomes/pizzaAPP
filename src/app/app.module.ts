@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { DetailsModalPageModule } from './details-modal/details-modal.module';
 import { AddReservationPageModule } from './add-reservation/add-reservation.module';
+import {VouchersModalPageModule} from './vouchers-modal/vouchers-modal.module';
+import {CreateVoucherModalPageModule} from "./create-voucher-modal/create-voucher-modal.module";
 
 // import { ReactiveFormsModule } from '@angular/forms';
 
@@ -27,8 +29,9 @@ import { AddReservationPageModule } from './add-reservation/add-reservation.modu
     IonicModule.forRoot(), 
     AppRoutingModule,
     DetailsModalPageModule,
-    
-    AddReservationPageModule
+    AddReservationPageModule,
+    VouchersModalPageModule,
+    CreateVoucherModalPageModule
   ],
   providers: [
     StatusBar,
