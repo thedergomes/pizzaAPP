@@ -68,14 +68,14 @@
               <input  class="inputMail" type="text" formControlName="name" required>
               <span class="highlight"></span>
               <span class="bar barMail"></span>
-              <label>Nombre de usuario</label>
+              <label>Nombre</label>
             </div>
           </div>
         </div>
         <div class="alert1 pr" *ngIf="name.invalid && (name.dirty || name.touched || submitted)">
             <div class="IconError1 center-flex pa"> <img class="iconSmall" src="assets/alert.svg"> </div>
             <div class="textError1 left-flex pa" >
-              <span *ngIf="name.errors.required"><small>Nombre de usuario requerido.</small></span> 
+              <span *ngIf="name.errors.required"><small>Nombre requerido.</small></span> 
             </div>
         </div>
         
@@ -139,12 +139,10 @@
               <span *ngIf="myform.errors?.notSame && !c_password.invalid && (c_password.dirty || c_password.touched || submitted)">password no coincide</span>
             </div>
         </div>
-
-
-        <!-- <div class="form-item8 bb center-flex"> 
-          <img class="icon iconPosition" src="assets/lock.svg">
-        </div> -->
-        <div class="form-item9 bb center-flex">
+        <div class="form-ext-item9 bb center-flex"> 
+          <img class="icon iconPosition" src="assets/question.svg">
+        </div>
+        <div class="form-item10 bb center-flex">
           <div class="container">
             <div class="group">      
               <input  class="inputMail" type="text" formControlName="question" required>
@@ -160,8 +158,10 @@
             <span *ngIf="question.errors.required"><small>Pregunta secreta requerida.</small></span> 
           </div>
         </div>
-
-        <div class="form-item10 bb center-flex">
+        <div class="form-item11 bb center-flex"> 
+          <img class="icon iconPosition" src="assets/question.svg">
+        </div>
+        <div class="form-item12 bb center-flex">
           <div class="container">
             <div class="group">      
               <input  class="inputMail" type="text" formControlName="answer" required>

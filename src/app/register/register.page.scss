@@ -99,7 +99,7 @@ label{
 }
 .grid-form{
     display: grid;
-    grid-row-gap: 10px;
+    grid-row-gap: 2px;
     grid-template-columns: 50px 83.5%;
     grid-template-areas:
         'errorIcon errorText'
@@ -111,12 +111,18 @@ label{
         'alert3 alert3'
         'lockIcon2 lockInput2'
         'alert4 alert4'
+        'questionIcon questionInput'
+        'alert5 alert5'
+        'answerIcon answerInput'
+        'alert6 alert6'
         'button button';
 }
 .alert1,
 .alert2,
 .alert3,
-.alert4 {
+.alert4,
+.alert5,
+.alert6 {
     display: grid;
     grid-template-columns: 50px 83.5%;
     grid-template-areas:
@@ -130,18 +136,24 @@ label{
     .form-errorText{ grid-area: errorText;}
     .form-item1 { grid-area: nameIcon;}
     .form-item2 { grid-area: nameInput;}
-    .alert1 { grid-area: alert1; padding-top: 10px;}
+    .alert1 { grid-area: alert1; padding-top: 15px;}
         .IconError1 { grid-area:IconError1; width: 100%; bottom: 0; left: 0;}
         .textError1 { grid-area:textError1; bottom: 0; left: 0;}
     .form-item3 { grid-area: mailIcon;}
     .form-item4 { grid-area: mailInput;}
-    .alert2 { grid-area: alert2; padding-top: 10px;}
+    .alert2 { grid-area: alert2; padding-top: 15px;}
     .form-item5 { grid-area: lockIcon;}
     .form-item6 { grid-area: lockInput;}
-    .alert3 { grid-area: alert3; padding-top: 10px;}
+    .alert3 { grid-area: alert3; padding-top: 15px;}
     .form-item7 { grid-area: lockIcon2;}
     .form-item8 { grid-area: lockInput2;}
-    .alert4 { grid-area: alert4; padding-top: 10px;}
+    .alert4 { grid-area: alert4; padding-top: 15px;}
+    .form-ext-item9 { grid-area: questionIcon;}
+    .form-item10 { grid-area: questionInput;}
+    .alert5 { grid-area: alert5; padding-top: 15px;}
+    .form-item11 { grid-area: answerIcon;}
+    .form-item12 { grid-area: answerInput;}
+    .alert6 { grid-area: alert6; padding-top: 15px;}
     .form-item9  {grid-area: button; margin-top:20px;}
 
 
