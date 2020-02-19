@@ -34,10 +34,10 @@ export class CreateVoucherModalPage implements OnInit {
       amount: this.amount,
       reference: this.reference
     };
-    
-    console.log("se llamo el crear voucher")
 
-    this.ordersService.addVouchers(this.orderNumber, data);
+    this.ordersService.addVouchers(this.orderNumber, data).then(data => {
+      this.closeModal();
+    });
   }
 
   async closeModal() {

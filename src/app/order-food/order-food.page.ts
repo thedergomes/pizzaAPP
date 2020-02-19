@@ -28,6 +28,7 @@ export class OrderFoodPage implements OnInit {
         this.product = JSON.parse(params.product);
         this.ObjectKeys = Object.keys(this.product.labels);
         this.size = this.ObjectKeys[0];
+        console.log(params.product);
       }
     });
   }

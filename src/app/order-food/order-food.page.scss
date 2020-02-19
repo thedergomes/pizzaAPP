@@ -1,0 +1,116 @@
+@import '../../global.scss';
+$fondo-color: #15151570;
+$text-color: #b9b4b4a3;
+.grid {
+  display: grid;
+  grid-template-columns: 10% 6fr 6fr 10%;
+  grid-template-rows: 25% auto;
+  grid-template-areas: 
+    "header    header    header     header"
+    "marginL    panel  panel   marginR";
+}
+.grid-header {
+  display: grid;
+  grid-template-columns:10% 30% 50% 10%;
+  grid-template-rows: auto; 
+  grid-template-areas: 
+    "marginHL icon categorie marginHR";
+}
+.item0 {grid-area: marginL; grid-row: 1 / -1 ;} // marginL
+.itemx {grid-area: marginR; grid-row: 1 / -1 ;} //marginR
+
+.container-header { grid-area: header;}
+.container { grid-area: panel}
+.item-header1 {grid-area: icon; background: $gray-fondo; border-radius: 4%;}
+.item-header2 { grid-area: categorie; background: $gray-fondo; border-radius: 4%;}
+
+.panel {
+  border-radius: 4px;
+  background: #393838b0;
+  padding: 20px;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2,1fr);  
+    grid-template-areas:
+    ' product product'
+    ' selectLabel select '
+    ' inputLabel inputAmount'
+    ' amountlabel amount '
+    ' button1 button2 ';
+}
+.product { 
+  grid-area: product;  
+}
+.select-panel{
+  grid-area: select;
+}
+.selectLabel-panel{grid-area: selectLabel; }
+.input-panel{ grid-area: inputAmount;}
+.inputLabel-panel{ grid-area: inputLabel;}
+.amount-panel{ grid-area: amount;}
+.amountlabel-panel{ grid-area: amountlabel;}
+.button1 { 
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  grid-area: button1; 
+  height: 35px;
+  background:#ff0000;
+  border-color: #b30404;
+}
+.button1:hover,
+.button1:focus {
+  background:#b30404;
+  border-color: #ff0000;
+}
+.button2 { 
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  height: 35px;
+  grid-area: button2; 
+  background: #6dfc42; 
+  border-color: #4bf019; 
+}
+.button2:hover,
+.button2:focus {
+  background: #4bf019; 
+  border-color: #6dfc42 
+} 
+.selectCustom,
+.inputCustom {
+  font-size: 18px;
+  padding: 10px 10px 10px 0px;
+  display: block;
+  width: 100%;
+  border: none;
+  background: transparent;
+}
+.bb-gray{ border-bottom: solid 2px $ColorInput; }
+
+
+
+
+
+// .test > span{
+//   color: red;
+// }
+
+.test.alert-button{
+  color: red !important;
+}
+
+.test.alert-button span
+{
+  color: red !important;
+}
+
+
+.colocito span
+{
+  color: red !important;
+}
+
+.colocito .alert-button-inner{
+  color: red;
+}
+
+

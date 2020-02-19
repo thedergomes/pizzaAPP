@@ -6,7 +6,7 @@
 
 <ion-content>
   <div class="voucher" *ngFor="let voucher of vouchers">
-    {{voucher.id}} - {{voucher.bank}}
+    {{voucher.id}} - {{voucher.bank}} - {{voucher.amount}}
   </div>
   <div class="boton-pagar" (click)="openModal(order.order)"> PAGAR </div>
 </ion-content>

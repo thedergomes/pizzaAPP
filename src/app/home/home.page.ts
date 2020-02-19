@@ -8,7 +8,8 @@ import { NavController} from '@ionic/angular';
 })
 export class HomePage {
 
-  token = localStorage.getItem('token');
+  // token = localStorage.getItem('token');
+  token:string = "";
 
   constructor(public navCtrl: NavController) {}
   goToMenuPage() {
@@ -33,8 +34,10 @@ export class HomePage {
     this.navCtrl.navigateForward('setting');
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter()
+  {
     console.log('carga');
+    this.token = localStorage.getItem('token');
   }
 
   singOut() 
