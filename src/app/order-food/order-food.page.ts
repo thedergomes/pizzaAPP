@@ -28,6 +28,7 @@ export class OrderFoodPage implements OnInit {
         this.product = JSON.parse(params.product);
         this.ObjectKeys = Object.keys(this.product.labels);
         this.size = this.ObjectKeys[0];
+        console.log(params.product);
       }
     });
   }
@@ -40,7 +41,9 @@ export class OrderFoodPage implements OnInit {
   {
     // item.quantity = +data.quantity;
     // localStorage.removeItem('details');
-    let list = localStorage.getItem('details');
+    // let list = localStorage.getItem('details');
+    let list = localStorage.getItem('details-'+this.user.id);
+    
     let details:Array<Product>;
 
     if (list != null) {
@@ -53,7 +56,7 @@ export class OrderFoodPage implements OnInit {
     this.product.quantity = this.quantity;
     // console.log(this.product);
     details.push(this.product);
-    localStorage.setItem('details', JSON.stringify(details));
+    localStorage.setItem('details-'+this.user.id, JSON.stringify(details));
     this.navCtrl.back();
   }
 

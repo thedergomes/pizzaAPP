@@ -36,12 +36,13 @@ export class OrdersPage implements OnInit {
     await alert.present();
   }
 
-  async openModal(details, ordenNumber) {
+  async openModal(details, ordenNumber, order) {
     const modal = await this.modalController.create({
       component: DetailsModalPage,
       componentProps: {
         "details": details,
-        "orderNumber" : ordenNumber 
+        "orderNumber" : ordenNumber,
+        "order": order
       }
     });
  
@@ -101,7 +102,6 @@ export class OrdersPage implements OnInit {
       });
   }
 
-  
   goToHomePage() {
     this.navCtrl.navigateForward('home');  
   }

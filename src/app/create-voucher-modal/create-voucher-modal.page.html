@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>createVoucher-modal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <input type="text" [(ngModel)]="bank" placeholder="Banco">
+  <input type="text" [(ngModel)]="reference" placeholder="Referencia">
+  <input type="text" [(ngModel)]="amount" placeholder="Monto">
+  <input type="text" [(ngModel)]="comment" placeholder="Comentario">
+  <ion-button (click)="addVoucher()" color="primary">AGREGAR PAGO</ion-button>
+</ion-content>

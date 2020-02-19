@@ -87,7 +87,7 @@ export class TicketPage implements OnInit {
         localStorage.removeItem('details-'+this.user.id);
 
         await this.presetAlert();
-        this.details = null;
+        this.details = [];
 
         // this.presetAlert().then(elem =>
         // {

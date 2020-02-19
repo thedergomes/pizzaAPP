@@ -13,52 +13,6 @@
     <div class="item1"> <img class="logo-s" src="assets/logo.svg"> </div>
     <div class="item2">
       <form class="grid-form" [formGroup]="myform" (ngSubmit)="addUser()">
-<!--         <div class="errorIcon center-flex">
-            <img class="icon" src="assets/alert.svg" >
-        </div> -->
-        <!-- <div class="errorText"> -->
-            <!-- <span>{{errores.name[0]}}</span> Cambiar esto, es viejo y da problemas en la vista -->
-            <!--
-
-            <div *ngFor="let item of errores.email" class="errorText">   CAMBIAR email por el nombre del campo. 
-              <div class="errorIcon center-flex">
-                <img class="icon" src="assets/alert.svg"> <span>{{item}}</span> 
-              </div>
-            </div>
-            -->
-            <!-- <div *ngIf="email.invalid && (email.dirty || email.touched)"> -->
-                <!-- <p *ngIf="email.errors.required">email required</p> -->
-                <!-- <p *ngIf="email.errors.email">email invalido</p> -->
-            <!-- </div> -->
-           <!--  <p *ngFor="let item of errores.email">{{item}}</p>
-            <p *ngFor="let item of errores.password">{{item}}</p>
-            <p *ngFor="let item of errores.c_password">{{item}}</p> -->
-            <!-- <p *ngFor="let item of errors.email">{{item}}</p>
-            <p *ngFor="let item of errors.password">{{item}}</p>
-            <p *ngFor="let item of errors.c_password">{{item}}</p> -->
-
-<!--           <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)">
-            <p *ngIf="name.errors.required">name required</p>
-          </div>
-          <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)">
-            <p *ngIf="email.errors.required">email required</p>
-            <p *ngIf="email.errors.email">email invalido</p>
-          </div>
-          <div *ngIf="password.invalid && (password.dirty || password.touched || submitted)">
-            <p *ngIf="password.errors.required">password required</p>
-          </div>
-          <div *ngIf="c_password.invalid && (c_password.dirty || c_password.touched || submitted)">
-            <p *ngIf="c_password.errors.required">c_password required</p>
-          </div>
-
-
-          <p *ngIf="myform.errors?.notSame && !c_password.invalid && (c_password.dirty || c_password.touched || submitted)">password no coincide</p> -->
-
-
-            <!-- <p *ngIf="myform.errors?.notSame">password no coincide</p> -->
-
-          
-        <!-- </div> -->
         <div class="form-item1 bb center-flex"> 
           <img class="icon iconPosition" src="assets/user.svg">
         </div>
@@ -68,14 +22,14 @@
               <input  class="inputMail" type="text" formControlName="name" required>
               <span class="highlight"></span>
               <span class="bar barMail"></span>
-              <label>Nombre de usuario</label>
+              <label>Nombre</label>
             </div>
           </div>
         </div>
         <div class="alert1 pr" *ngIf="name.invalid && (name.dirty || name.touched || submitted)">
             <div class="IconError1 center-flex pa"> <img class="iconSmall" src="assets/alert.svg"> </div>
             <div class="textError1 left-flex pa" >
-              <span *ngIf="name.errors.required"><small>Nombre de usuario requerido.</small></span> 
+              <span *ngIf="name.errors.required"><small>Nombre requerido.</small></span> 
             </div>
         </div>
         
@@ -105,7 +59,7 @@
         <div class="form-item6 bb center-flex">
           <div class="container">
             <div class="group">      
-              <input  class="inputMail" type="text" formControlName="password" required>
+              <input  class="inputMail" type="password" formControlName="password" required>
               <span class="highlight"></span>
               <span class="bar barMail"></span>
               <label>Contraseña</label>
@@ -125,7 +79,7 @@
         <div class="form-item8 bb center-flex">
           <div class="container">
             <div class="group">      
-              <input  class="inputMail" type="text" formControlName="c_password" required>
+              <input  class="inputMail" type="password" formControlName="c_password" required>
               <span class="highlight"></span>
               <span class="bar barMail"></span>
               <label>Confirme Contraseña</label>
@@ -139,12 +93,10 @@
               <span *ngIf="myform.errors?.notSame && !c_password.invalid && (c_password.dirty || c_password.touched || submitted)">password no coincide</span>
             </div>
         </div>
-
-
-        <!-- <div class="form-item8 bb center-flex"> 
-          <img class="icon iconPosition" src="assets/lock.svg">
-        </div> -->
-        <div class="form-item9 bb center-flex">
+        <div class="form-ext-item9 bb center-flex"> 
+          <img class="icon iconPosition" src="assets/question.svg">
+        </div>
+        <div class="form-item10 bb center-flex">
           <div class="container">
             <div class="group">      
               <input  class="inputMail" type="text" formControlName="question" required>
@@ -160,8 +112,10 @@
             <span *ngIf="question.errors.required"><small>Pregunta secreta requerida.</small></span> 
           </div>
         </div>
-
-        <div class="form-item10 bb center-flex">
+        <div class="form-item11 bb center-flex"> 
+          <img class="icon iconPosition" src="assets/question.svg">
+        </div>
+        <div class="form-item12 bb center-flex">
           <div class="container">
             <div class="group">      
               <input  class="inputMail" type="text" formControlName="answer" required>

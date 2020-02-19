@@ -9,77 +9,23 @@
   </ion-header>
   <body>
       <div class="grid fondo-1">
-        <div class="item0"></div>
         <div class="container-header fondo-2 h-150">
           <div class="grid-header mt-15">
               <div class="item-header1 center-flex pt-10 pb-10"><img  class="icon-header" src="assets/order.svg"></div>
               <div class="item-header2 center-flex fontW-600 font-size-2em pt-10 pb-10">Mi Pedido</div>
           </div>
         </div>
-        <div class="container-products">
-          <div class="grid-products">
-            <div class="ticket-header">
-                <div class="ticket-header-image center-flex"></div>
-                <div class="ticket-header-title text-aling-center">Producto</div>
-                <div class="ticket-header-price text-aling-center">Precio</div>
-                <div class="ticket-header-amount text-aling-center">Cant.</div>
-                <div class="ticket-header-total text-aling-center">Total</div>  
-            </div>
-
-            <!-- item a reproducir por producto  -->
-
-            <div class="product" *ngFor="let item of details; index as i;">
-                <button (click)="delete(i)" class="font-size07 btn btn-red btn-block">Eliminar</button>
-
-                <div class="product-image center-flex"><img class="w-80" src="assets/pizza.png"></div>
-                <!-- <div class="product-title text-aling-center">{{item.food_id}}</div> -->
-                <div class="product-title text-aling-center">{{item.name}}</div>
-                <!-- <div class="product-price text-aling-center">precio</div> -->
-                <!-- <div class="product-price text-aling-center">{{item.price}}</div> -->
-                <div class="product-price text-aling-center">{{item.prices[item.size]}}</div>
-                
-                <div class="product-amount text-aling-center">{{item.quantity}}</div>
-                <!-- <div class="product-total text-aling-center">300.000</div>                -->
-                <!-- <div class="product-total text-aling-center">{{item.quantity*item.price}}</div>   -->
-                <!-- <div class="product-total text-aling-center">{{item.quantity * item.prices[item.size]}}</div>   -->
-                <div class="product-total text-aling-center">{{item.quantity * item.prices[item.size]}}</div>  
-            </div>
-            <!-- <div class="product">
-                <div class="product-image center-flex"><img class="w-80" src="assets/pizza.png"></div>
-                <div class="product-title text-aling-center">Margarita doble</div>
-                <div class="product-price text-aling-center"> 150.000</div>
-                <div class="product-amount text-aling-center"> 2 </div>
-                <div class="product-total text-aling-center">300.000</div>               
-            </div>
-            <div class="product">
-                <div class="product-image center-flex"><img class="w-80" src="assets/pizza.png"></div>
-                <div class="product-title text-aling-center">Margarita doble</div>
-                <div class="product-price text-aling-center"> 150.000</div>
-                <div class="product-amount text-aling-center"> 2 </div>
-                <div class="product-total text-aling-center">300.000</div>               
-            </div>
-            <div class="product">
-                <div class="product-image center-flex"><img class="w-80" src="assets/pizza.png"></div>
-                <div class="product-title text-aling-center">Margarita doble</div>
-                <div class="product-price text-aling-center"> 150.000</div>
-                <div class="product-amount text-aling-center"> 2 </div>
-                <div class="product-total text-aling-center">300.000</div>               
-            </div> -->
-            <!-- item a reproducir por producto  -->
+        <div class="container">
+          <div class="header-new">
+            <div class="header-marginHL"></div>
+        <div class="header-productH">Producto</div>
+        <div class="header-priceH"> Precio</div>
+        <div class="header-totalH"> Total</div>
           </div>
-          <div class="grid-total">
-            <div class="total-text">Total:</div>
-            <!-- <div class="total-total">2500,00</div> PARA INDICAR TOTAL DE COMPRA -->
-            <div class="total-total">{{ total }}</div> <!-- PARA INDICAR TOTAL DE COMPRA -->
-            <div class="total-delete ">
-              <button *ngIf="details.length > 0" (click)="cancelAll()" class="font-size07 btn btn-red btn-block">Cancelar pedido</button>
-            </div>
-            <div class="total-button ml-10">
-              <button *ngIf="details.length > 0" (click)="confirm()" class="font-size07 btn btn-white btn-block">Confirmar pedido</button>
-            </div>
-          </div>
+
+
+         
         </div>
-        <div class="itemx"></div>
       </div>
 
 

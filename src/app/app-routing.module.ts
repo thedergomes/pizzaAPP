@@ -35,6 +35,14 @@ const routes: Routes = [
     path: 'add-reservation',
     loadChildren: () => import('./add-reservation/add-reservation.module').then( m => m.AddReservationPageModule)
   },
+  {
+    path: 'vouchers-modal',
+    loadChildren: () => import('./vouchers-modal/vouchers-modal.module').then( m => m.VouchersModalPageModule)
+  },
+  {
+    path: 'create-voucher-modal',
+    loadChildren: () => import('./create-voucher-modal/create-voucher-modal.module').then( m => m.CreateVoucherModalPageModule)
+  },
 ];
 
 @NgModule (
