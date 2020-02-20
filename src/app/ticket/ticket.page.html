@@ -26,7 +26,8 @@
           <div class="ticket-categorie start-flex"> <img class="small" [src]="item.image"> <span class="font-size-1em pl-10px">{{ item.name }}</span></div>
           <div class="test area-body" *ngFor="let product of item.product; index as j;">
             <div class="ticket-delete center-flex">
-              <img (click)="delete(i)" class="small cursor" src="assets/minus.svg">
+              <!-- <img (click)="delete(i)" class="small cursor" src="assets/minus.svg"> -->
+              <img (click)="delete(i, j)" class="small cursor" src="assets/minus.svg">
             </div>
             <div class="ticket-product text-aling-center">
               {{product.name}} <small>({{product.quantity}})</small>
@@ -35,7 +36,6 @@
             <div class="ticket-priceP center-flex"><span class="font-size-0-7em">{{product.prices[product.size]}}</span></div>
             <div class="ticket-totalP center-flex"><span class="font-size-0-7em">{{product.quantity * product.prices[product.size]}}</span></div>
           </div>
-
         </div>
 
 
