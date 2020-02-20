@@ -25,28 +25,18 @@ $text-color: #b9b4b4a3;
   grid-template-areas: 
     "iconMenu1 textMenu1 arrow1"
     "iconMenu2 textMenu2 arrow2" 
-    "iconMenu3 textMenu3 arrow3"
-    "iconMenu4 textMenu4 arrow4"; 
-
-
+    "iconMenu3 textMenu3 arrow3";
 }
 .item0 { grid-area: header;}
-  .header-item1 { grid-area: menuIcon1; background: #393838d4; border-right: solid 0.5px $text-color; border-radius: 4%; cursor: pointer;}
-  .header-item2 { grid-area: menuIcon2; background: #393838d4; border-left: solid 0.5px $text-color; border-radius: 4%; cursor: pointer;}
-.item1 { grid-area: menu; margin-top: 50px;}
+  .header-item1 { grid-area: menuIcon1; background: #393838d4; border-right: solid 0.5px $text-color;border-radius: 5px 0 0 5px;  }
+  .header-item2 { grid-area: menuIcon2; background: #393838d4; border-left: solid 0.5px $text-color; border-radius: 0 5px 5px 0; }
+.item,
+.container-alert { grid-area: menu; margin-top: 50px;}
 
-  .menu-item1 { grid-area: iconMenu1; background: $fondo-color; cursor: pointer;}
-  .menu-item1-2 { grid-area: textMenu1; background: $fondo-color;cursor: pointer;}
-  .menu-item1-3 { grid-area: arrow1; background: $fondo-color;cursor: pointer;}
-  .menu-item2 { grid-area: iconMenu2; background: $fondo-color; cursor: pointer;}
-  .menu-item2-2 { grid-area: textMenu2; background: $fondo-color;cursor: pointer;}
-  .menu-item2-3 { grid-area: arrow2; background: $fondo-color;cursor: pointer;}
-  .menu-item3 { grid-area: iconMenu3; background: $fondo-color; cursor: pointer;}
-  .menu-item3-2 { grid-area: textMenu3; background: $fondo-color;cursor: pointer;}
-  .menu-item3-3 { grid-area: arrow3; background: $fondo-color;cursor: pointer;}
-  .menu-item4 { grid-area: iconMenu4; background: $fondo-color; cursor: pointer;}
-  .menu-item4-2 { grid-area: textMenu4; background: $fondo-color;cursor: pointer;}
-  .menu-item4-3 { grid-area: arrow4; background: $fondo-color;cursor: pointer;}
+  .menu-item1 { grid-area: iconMenu1; background: $fondo-color; border-radius: 5px 0 0 5px;}
+  .menu-item1-2 { grid-area: textMenu1; background: $fondo-color;}
+  .menu-item1-3 { grid-area: arrow1; background: $fondo-color; border-radius: 0 5px 5px 0;}
+
 
 .itemy { grid-area: marginL;}
 .itemx { grid-area: marginR;}

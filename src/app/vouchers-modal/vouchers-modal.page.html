@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>vouchers-modal</ion-title>
   </ion-toolbar>
@@ -10,3 +10,62 @@
   </div>
   <div class="boton-pagar" (click)="openModal(order.order)"> PAGAR </div>
 </ion-content>
+ -->
+
+
+
+ <ion-header>
+    <ion-toolbar class="headerColor">
+      <ion-buttons (click)="closeModal()">
+        <ion-button>
+          <ion-icon slot="icon-only" name="close-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <body>
+      <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+          <ion-fab-button color="primary" (click)="openModal(order.order)">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+      </ion-fab>
+      <div class="grid fondo-1">
+        <div class="container-header fondo-2 h-150">
+          <div class="grid-header mt-15">
+              <div class="item-header1 center-flex pt-10 pb-10"><img  class="icon-header" src="assets/wallet.svg"></div>
+              <div class="item-header2 center-flex fontW-600 font-size-1em pt-10 pb-10"><span class="font-color-gray">Historial de pagos</span></div>
+          </div>
+        </div>
+        <div class="container"  >
+          <div class="header">
+            <div class="header-marginHL"></div>
+        <div class="header-productH text-aling-center"><b>N°</b></div>
+        <div class="header-priceH text-aling-center"> <b>Banco</b></div>
+        <div class="header-totalH text-aling-center"> <b>Monto</b></div>
+          </div>
+          
+          <div class="ticket-order cursor" *ngFor="let voucher of vouchers">
+              <div class="ticket-product text-aling-center">
+                  {{voucher.id}}
+              </div>
+              <div class="ticket-priceP center-flex"><span class="font-size-0-7em">{{voucher.bank}}</span></div>
+              <div class="ticket-totalP center-flex" ><span> {{voucher.amount}}</span> 
+              </div>
+       
+            </div>
+            <div class="footer">
+            </div>
+   <!--        <div class="button btn-green center-flex cursor" (click)="confirm()"> <b>Confirmar</b> </div> -->
+        </div>
+
+   <!--      <div class="container-alert" *ngIf="order.length == 0">
+            <div class="alert-iconA center-flex"> <img class="not-found" src="assets/not_fount.svg"></div>
+            <div class="alert-textA  center-flex "> <span ><b class="font-color-gray font-size-1.5em">Sin historiial.</b></span> </div>
+        </div> -->
+      </div>
+
+      
+
+
+     
+  </body>

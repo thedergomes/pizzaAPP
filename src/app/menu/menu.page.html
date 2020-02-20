@@ -12,25 +12,30 @@
           <div class="item0 fondo-2 ">
                 <div class="grid-header mt-xl">
                     <div class="header-item0"></div>
-                        <div class="header-item1 h-100 position" (click)="goToMenuPage()">
+                        <div class="header-item1 h-100 position">
                             <div> <img class="icon-header2" src="assets/menu_active.svg"> </div>
                             <div class="menuTextStyle active">Menú</div>
                         </div>
-                    <div class="header-item2 h-100 position">
-                        <div> <img class="icon-header2" src="assets/reserve.svg"> </div>
+                    <div class="header-item2 h-100 position" (click)="goToReservationPage()">
+                        <div class="cursor"> <img class="icon-header2" src="assets/reserve.svg"> </div>
                         <div class="menuTextStyle">Reservar</div>
                     </div>
                 </div>
           </div>
-          <div class="item1">
-            <div *ngFor="let item of categoriesList"  class="grid-menu" (click)="goToProductsPage(item)">
+          <div class="item">
+            <div *ngFor="let item of categoriesList"  class="grid-menu cursor" (click)="goToProductsPage(item)">
               <div class="menu-item1 center-flex w-100 h-100"><img class="icon-menu" src="{{item.image}}" alt=""></div>
-              <div class="menu-item1-2 left-flex h-100 fontW-600">{{item.name}}</div>
+              <div class="menu-item1-2 left-flex h-100 fontW-600"><span class="font-color-gray">{{item.name}}</span></div>
               <div class="menu-item1-3 w-100 center-flex h-100"><img class="icon" src="assets/next.svg" ></div>    
             </div>
+ <!--            
+            <div class="container-alert" >
+                <div class="alert-iconA center-flex"> <img class="not-found" src="assets/not_fount.svg"></div>
+                <div class="alert-textA  center-flex "> <span ><b class="font-color-gray font-size-1.5em">No se encontraron categorias.</b></span> </div>
+            </div> -->
+
+            
           </div>
-          <div class="itemy"></div>
-          <div class="itemx"></div>
       </div>
   </body>
   

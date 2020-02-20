@@ -1,10 +1,125 @@
-input {
-    color: red;
-    background-color: black;
+@import '../../global.scss';
+$fondo-color: #15151570;
+$text-color: #b9b4b4a3;
+.grid {
+  display: grid;
+  grid-template-columns: 10% 6fr 6fr 10%;
+  grid-template-rows: 25% auto;
+  grid-template-areas: 
+    "header    header    header     header"
+    "marginL    panel  panel   marginR";
+}
+.grid-header {
+  display: grid;
+  grid-template-columns:10% 30% 50% 10%;
+  grid-template-rows: auto; 
+  grid-template-areas: 
+    "marginHL icon categorie marginHR";
 }
 
-button {
-    width: 100px;
-    height: 30px;
-    color: green;
+.container-header { grid-area: header;}
+.container { grid-area: panel}
+.item-header1 {grid-area: icon; background: $gray-fondo; border-radius: 4%;}
+.item-header2 { grid-area: categorie; background: $gray-fondo; border-radius: 4%;}
+
+.panel {
+  padding: 20px;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2,1fr);  
+    grid-template-areas:
+    'header header'
+    ' selectLabel select '
+    ' inputLabel inputAmount'
+    ' amountlabel amount '
+    ' commetLabel commetLabel'
+    ' inputCommet inputCommet'
+    'footer footer'
+    ' button1 button2 '
+    ;
 }
+.product { 
+  grid-area: product;  
+  background: $gray-index;
+  padding: 5px;
+  border-radius: 5px 5px 0 0;
+}
+.header { grid-area: header; height: 20px; background: $gray-index; border-radius: 5px 5px 0 0 ;}
+.selectLabel-panel {
+  grid-area: selectLabel; 
+  background: $gray-fondo;
+  padding: 10px;
+}
+.select-panel{
+  grid-area: select;
+  background: $gray-fondo;
+  padding: 10px;
+}
+.inputLabel-panel{
+  grid-area: inputLabel;
+  background: $gray-fondo;
+  padding: 10px;
+}
+.input-panel{ 
+  grid-area: inputAmount;
+  background: $gray-fondo;
+  padding: 10px;
+}
+.amountLabel-panel{
+  grid-area: amountlabel;
+  background: $gray-fondo;
+  padding: 10px;
+  border-radius: 0 0 0 5px;
+}
+.amount-panel{
+  grid-area: amount;
+  background: $gray-fondo;
+  padding: 10px;
+  border-radius: 0 0 5px 0 ;
+}
+.commetLabel-panel{
+    grid-area: commetLabel;
+    background: $gray-fondo;
+    padding: 10px;
+    border-radius: 0 0 0 5px;
+  }
+.inputCommet-panel{
+    grid-area: inputCommet;
+    background: $gray-fondo;
+    padding: 10px;
+    border-radius: 0 0 5px 0 ;
+  } 
+.footer { grid-area: footer; height: 20px; background: $gray-index; border-radius: 0 0 5px 5px ;}
+
+.button1 { 
+  height: 40px;
+  border-radius: 5px 0 0 5px;
+  grid-area: button1; 
+}
+
+.button2 { 
+  height: 40px;
+  border-radius: 0 5px 5px 0;
+  grid-area: button2; 
+  color: white;
+}
+
+.selectCustom,
+.inputCustom {
+  font-size: 18px;
+  padding: 10px 10px 10px 0px;
+  display: block;
+  width: 100%;
+  border: none;
+  background: transparent;
+}
+.bb-gray{ border-bottom: solid 2px $ColorInput; }
+textarea {
+    border: solid 2px $gray-index;
+    background: $gray-fondo;
+    color: white;
+}
+
+
+
+

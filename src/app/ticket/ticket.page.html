@@ -12,21 +12,46 @@
         <div class="container-header fondo-2 h-150">
           <div class="grid-header mt-15">
               <div class="item-header1 center-flex pt-10 pb-10"><img  class="icon-header" src="assets/order.svg"></div>
-              <div class="item-header2 center-flex fontW-600 font-size-2em pt-10 pb-10">Mi Pedido</div>
+              <div class="item-header2 center-flex fontW-600 font-size-2em pt-10 pb-10"><span class="font-color-gray">Mi Pedido</span></div>
           </div>
         </div>
-        <div class="container">
-          <div class="header-new">
+        <div class="container" *ngIf="details.length > 0">
+          <div class="header">
             <div class="header-marginHL"></div>
-        <div class="header-productH">Producto</div>
-        <div class="header-priceH"> Precio</div>
-        <div class="header-totalH"> Total</div>
+        <div class="header-productH text-aling-center"><b>Producto</b></div>
+        <div class="header-priceH text-aling-center"> <b>Precio</b></div>
+        <div class="header-totalH text-aling-center"> <b>Total</b></div>
           </div>
+          
+          <div class="ticket-order" *ngFor="let item of details; index as i;">
+            <div class="ticket-categorie start-flex"> <img class="small" src="assets/pizza.png"> <span class="font-size-1em pl-10px">Pizza</span></div>
+            <div class="ticket-delete center-flex">
+                <img (click)="delete(i)" class="small cursor" src="assets/minus.svg">
+            </div>
+              <div class="ticket-product text-aling-center">
+                {{item.name}} <small>({{item.quantity}})</small>
+                <div class=""><small> (Pequeña)</small></div>
+              </div>
+              <div class="ticket-priceP center-flex"><span class="font-size-0-7em">{{item.prices[item.size]}}</span></div>
+              <div class="ticket-totalP center-flex"><span class="font-size-0-7em">{{item.quantity * item.prices[item.size]}}</span></div>
+            </div>
+            <div class="footer">
+              <div class="footer-emptyP center-flex cursor" (click)="cancelAll()">
+                <span>Cancelar</span>
+              </div>
+              <div class="footer-textF d-flex jc-end ai-center">Total:</div>
+              <div class="footer-totalF d-flex ai-center jc-center">{{ total }}</div>
+            </div>
+          <div class="button btn-green center-flex cursor" (click)="confirm()"> <b>Confirmar</b> </div>
+        </div>
 
-
-         
+        <div class="container-alert" *ngIf="details.length == 0">
+            <div class="alert-iconA center-flex"> <img class="not-found" src="assets/not_fount.svg"></div>
+            <div class="alert-textA  center-flex "> <span ><b class="font-color-gray font-size-1.5em">Sin pedidos pendientes.</b></span> </div>
         </div>
       </div>
+
+      
 
 
      

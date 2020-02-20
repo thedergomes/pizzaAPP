@@ -33,6 +33,9 @@ export class MenuPage implements OnInit {
   goToHomePage () {
     this.navCtrl.navigateForward('home');
   }
+  goToReservationPage() {
+    this.navCtrl.navigateForward('reservations');  
+  }
   categories(){
     this.MenusService.getCategories()
     .then(data => 
