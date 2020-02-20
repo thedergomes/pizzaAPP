@@ -9,11 +9,11 @@ import { OrdersService } from "../services/orders.service";
 })
 export class CreateVoucherModalPage implements OnInit {
 
-  bank: any = "";
-  comments: any = "";
-  reference: any = "";
-  amount: any = "";
-  orderNumber: any;
+  bank: string = "";
+  comments: string = "";
+  reference: string = "";
+  amount: string = "";
+  orderNumber: string;
 
   constructor(
     private ordersService : OrdersService ,
@@ -36,8 +36,9 @@ export class CreateVoucherModalPage implements OnInit {
     };
 
     this.ordersService.addVouchers(this.orderNumber, data).then(data => {
-      this.closeModal();
-    });
+      console.log(data)
+      this.closeModal(); 
+    }).catch(error => {console.log (error)});
   }
 
   async closeModal() {

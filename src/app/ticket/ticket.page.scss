@@ -130,10 +130,20 @@ $text-color: #b9b4b4a3;
 .ticket-order{
   background: $gray-fondo;
   display: grid;
-  grid-template-columns: 10% 40% 25% 25%;
-  grid-template-areas: 'categorie categorie categorie categorie''delete product priceP totalP';
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'categorie''body';
 }
 .ticket-categorie { grid-area: categorie; background: #84818130; padding: 5px; }
+.body {
+  grid-area: body; 
+}
+.test{
+  display: grid;
+  grid-template-columns: 10% 40% 25% 25%;
+  grid-template-areas: 'delete product priceP totalP';
+
+}
 .ticket-delete{ grid-area: delete; padding:5px;  }
 .ticket-product{ grid-area: product; padding-left: 5px; padding-top: 5px; padding-bottom: 5px;  }
 .ticket-priceP{ grid-area: priceP;  }

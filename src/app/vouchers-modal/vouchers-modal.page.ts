@@ -3,6 +3,8 @@ import { ModalController, NavParams } from '@ionic/angular';
 import {CreateVoucherModalPage} from "../create-voucher-modal/create-voucher-modal.page";
 import { ThrowStmt } from '@angular/compiler';
 import { OrdersService } from "../services/orders.service"
+import { wsResponse } from '../models/categories';
+import { error } from 'util';
 
 @Component({
   selector: 'app-vouchers-modal',
@@ -11,17 +13,28 @@ import { OrdersService } from "../services/orders.service"
 })
 export class VouchersModalPage implements OnInit {
 
-  vouchers: any;
+  vouchersList:Array<any> = new Array<any>();
   order: any;
+
   constructor(
     private ordersService : OrdersService ,
     private modalController: ModalController,
     private navParams: NavParams
-  ) { }
+  ) 
+  { 
+    // console.log(this.vouchers);
+  }
 
   ngOnInit() {
-    this.vouchers = this.navParams.data.vouchers;
+    // this.vouchers = this.navParams.data.vouchers;
+
     this.order = this.navParams.data.order;
+    console.log("voucher-modal enter");
+    this.ordersService.getVouchers(this.order.order).then( data => {
+      this.vouchersList = data.data;
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
   async openModal() {
@@ -35,7 +48,8 @@ export class VouchersModalPage implements OnInit {
     modal.onDidDismiss().then(
       async () => {
         console.log("se cerro el modal de pagar");
-        this.vouchers = await this.ordersService.getVouchers(this.order.order);
+        let result = await this.ordersService.getVouchers(this.order.order);
+        this.vouchersList = result.data;
       }
     );
   

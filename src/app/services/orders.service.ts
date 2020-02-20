@@ -32,14 +32,15 @@ export class OrdersService {
     });
   }
   
-  getVouchers(orderID) {
+  getVouchers(orderID):Promise<wsResponse<any>>
+  {
     return new Promise((resolve, reject) => {
       let headers = new HttpHeaders({
         'Content-Type': 'application/json; charset=utf-8',
         'Authorization': 'Bearer '+localStorage.getItem('token')
       });
       let options = {headers};
-      this.http.get(this.apiRestURL + `vouchers?filter[order_id]=${orderID}`, options)
+      this.http.get<wsResponse<any>>(this.apiRestURL + `vouchers?filter[order_id]=${orderID}`, options)
         .subscribe(res => {
           resolve(res);
         }, (err) => {
