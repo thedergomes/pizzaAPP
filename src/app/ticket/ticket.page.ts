@@ -20,17 +20,55 @@ export class TicketPage implements OnInit {
     private menus:MenusService,
     private alertC:AlertController) 
   { 
-    // this.details = JSON.parse(localStorage.getItem('details-'+this.user.id));
-    let result = JSON.parse(localStorage.getItem('details-'+this.user.id));
-    this.details = result != null ? result : [];
-    
-    console.log(this.details);
-    if (this.details != null) {
-      this.details.forEach(element => {
-        // this.total = this.total + element.price * element.quantity;
-        this.total = this.total + element.prices[element.size] * element.quantity;
+    let list:Array<any> = new Array<any>();
+    let result2 = JSON.parse(localStorage.getItem('details-'+this.user.id));
+    if (result2 != null) {
+      let categories = result2.reduce(function(acc, valorActual, indice, vector){
+        let found = acc.find(element => element.name == valorActual.category.name);
+        if (found == undefined || found == 0 ) {
+          acc.push({
+            name:valorActual.category.name,
+            image:valorActual.category.image
+          });
+        }
+        return acc;
+      }, []);
+  
+      categories.forEach(element => 
+      {
+        let productSameCategory = result2.filter(word => word.category.name == element.name);
+        list.push({
+          name: element.name,
+          image:element.image,
+          product:productSameCategory
+        });
       });
+
+      this.details = list;
     }
+    else{
+      this.details = [];
+    }
+
+    
+    console.log("-----------------------------");
+    console.log(list);
+    console.log("-----------------------------");
+
+
+
+    // this.details = JSON.parse(localStorage.getItem('details-'+this.user.id));
+    // let result = JSON.parse(localStorage.getItem('details-'+this.user.id));
+    // this.details = result != null ? result : [];
+    
+    // console.log(this.details);
+    // if (this.details != null) {
+    //   this.details.forEach(element => {
+    //     // this.total = this.total + element.price * element.quantity;
+    //     this.total = this.total + element.prices[element.size] * element.quantity;
+    //   });
+    // }
+    // console.log(this.details[0]);
   }
 
   async presetAlert()

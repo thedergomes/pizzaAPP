@@ -3,11 +3,12 @@ $fondo-color: #15151570;
 $text-color: #b9b4b4a3;
 .grid {
   display: grid;
-  grid-template-columns: 10% 6fr 6fr 10%;
-  grid-template-rows: 25% auto;
+  grid-template-columns: 5% 6fr 6fr 5%;
+  grid-template-rows: 25% repeat(2, auto);
   grid-template-areas: 
-    "header    header    header     header"
-    "marginL    container  container   marginR";
+    "header     header      header      header"
+    "marginL    container   container   marginR"
+    "marginL    button      button      marginR";
   }
 .grid-header {
   display: grid;
@@ -69,8 +70,7 @@ $text-color: #b9b4b4a3;
   "image title  price   amount total deleteB";
 
 } */
-.item0 {grid-area: marginL; grid-row: 1 / -1 ;} // marginL
-.itemx {grid-area: marginR; grid-row: 1 / -1 ;} //marginR
+
 
 .container-header { grid-area: header;}
 .container-product { grid-area: product;} 
@@ -107,21 +107,75 @@ $text-color: #b9b4b4a3;
 
 
 
-.container { grid-area: container;}
+.container,
+.container-alert { grid-area: container;}
+.button { grid-area: button; margin-top: 30px; height: 40px; color: white !important; border-radius: 4px;}
 
 
 
 
-
-.header-new{
+.header{
+  padding: 5px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background: $gray-index;
   display: grid;
-  grid-template-columns: 1% 48% 25% 25% 1%;
-  grid-template-rows: 25% auto;
-  grid-template-areas: 'marginHL productH priceH totalH marginHR';
+  grid-template-columns: 50% 25% 25%;
+  grid-template-areas: 'productH priceH totalH';
+}
+.header-productH{ grid-area: productH; padding-left: 5px; }
+.header-priceH{ grid-area: priceH;  }
+.header-totalH{ grid-area: totalH; }
+
+.ticket-order{
+  background: $gray-fondo;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'categorie''body';
+}
+.ticket-categorie { grid-area: categorie; background: #84818130; padding: 5px; }
+.body {
+  grid-area: body; 
+}
+.test{
+  display: grid;
+  grid-template-columns: 10% 40% 25% 25%;
+  grid-template-areas: 'delete product priceP totalP';
 
 }
-.header-marginHL { grid-area: marginHL;}
-.header-productH{ grid-area: productH; border: solid 2px red;}
-.header-priceH{ grid-area: priceH; border: solid 2px green; }
-.header-totalH{ grid-area: totalH;border: solid 2px blue; }
-.header-marginHL { grid-area: marginHR;}
+.ticket-delete{ grid-area: delete; padding:5px;  }
+.ticket-product{ grid-area: product; padding-left: 5px; padding-top: 5px; padding-bottom: 5px;  }
+.ticket-priceP{ grid-area: priceP;  }
+.ticket-totalP{ grid-area: totalP; }
+small { font-size: 60%;}
+
+
+
+
+.footer{
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  display: grid;
+  grid-template-columns: 50% 25% 25%;
+  grid-template-areas: 'emptyF textF totalF';
+}
+.footer-emptyP{ grid-area: emptyF; background: red; height: 40px; border-bottom-left-radius: 4px; }
+.footer-emptyP:hover,
+.footer-emptyP:focus{
+    color:#000;
+    background: #b30404;
+    border-color: #b30404;
+}
+
+.footer-textF{ grid-area: textF;  background: $gray-index; }
+.footer-totalF{ grid-area: totalF;  background: $gray-index; border-bottom-right-radius: 4px; }
+
+/* .position-delete {
+  top: 0;
+  left: 0;
+  right: 80%;
+  bottom: 0;
+  margin: auto;
+} */
+

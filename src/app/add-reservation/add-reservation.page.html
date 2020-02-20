@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>addReservation</ion-title>
   </ion-toolbar>
@@ -12,3 +12,50 @@
   <button (click)="addReservation()" style="background: green">Reservar</button>
   <button (click)="cancel()" style="background: red">Cancelar</button>
 </ion-content>
+ -->
+
+ <ion-header>
+    <ion-toolbar class="headerColor">
+    </ion-toolbar>
+  </ion-header>
+  <body>
+      <div class="grid fondo-1">
+        <div class="item0"></div>
+        <div class="container-header fondo-2 h-150">
+          <div class="grid-header mt-15">
+              <div class="item-header1 center-flex pt-10 pb-10"><img class="w-90 m-h-50" src="assets/reserve.svg"></div>
+              <div class="item-header2 center-flex fontW-600 font-size-2em pt-10 pb-10"><span class="font-color-gray">Reservar</span></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="panel">
+            <div class="product">
+            </div>
+              <div class="selectLabel-panel center-flex ">
+                  <span class="font-color-white">Fecha:</span>
+                </div>
+            <div class="select-panel">
+                <input class="inputCustom bb-gray" type="date"[(ngModel)]="date">
+            </div>
+            <div class="inputLabel-panel center-flex ">
+                <span class="font-color-white">Asientos:</span>
+              </div>
+          <div class="input-panel">
+              <input class="inputCustom bb-gray" type="number" min="1" [(ngModel)]="seats">
+          </div>
+          <div class="amountLabel-panel d-flex jc-end ai-center">
+            </div>
+        <div class="amount-panel d-flex ai-center jc-center">
+        </div>
+  
+        <div class="button1 mt-20px center-flex btn-red cursor" (click)="cancel()">
+            <span>Cancelar</span>
+        </div> 
+        <div class="button2 mt-20px center-flex btn-green cursor" (click)="addReservation()">
+            <span>Reservar</span>
+        </div>
+          </div>
+          </div>
+        </div>
+  </body>
+  

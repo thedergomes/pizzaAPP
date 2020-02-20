@@ -103,7 +103,8 @@ export class OrdersPage implements OnInit {
   }
 
   goToHomePage() {
-    this.navCtrl.navigateForward('home');  
+    // this.navCtrl.navigateForward('home');  
+    this.navCtrl.back();  
   }
 
   ngOnInit() {
