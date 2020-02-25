@@ -43,10 +43,17 @@ export class ReservationsPage implements OnInit {
     });
 
     await modal.present();
-    let a = await modal.onWillDismiss();
-    this.listReservation.push(a.data as Reservation);
-    console.log(a);
 
+    modal.onDidDismiss().then(
+      async () => {
+        this.reservationService.getReservation()
+        .then(async data => {
+          this.listReservation = data.data;
+        }).catch(error => {
+          console.log(error);
+        });
+      }
+    );
   }
 
   cancel(id){

@@ -42,6 +42,7 @@ export class OrderFoodPage implements OnInit {
     // item.quantity = +data.quantity;
     // localStorage.removeItem('details');
     // let list = localStorage.getItem('details');
+
     let list = localStorage.getItem('details-'+this.user.id);
     
     let details:Array<Product>;
@@ -52,6 +53,7 @@ export class OrderFoodPage implements OnInit {
     }else{
       details = new Array<Product>();
     }
+
     this.product.size = this.size;
     this.product.quantity = this.quantity;
     // console.log(this.product);
@@ -65,6 +67,10 @@ export class OrderFoodPage implements OnInit {
 
   get total() {
     return  this.product.prices[this.size] * this.quantity;
+  }
+
+  get price(){
+    return  this.product.prices[this.size]
   }
 
 }

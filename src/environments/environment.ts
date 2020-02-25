@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   // apiRestURL: 'http://localhost/PizzaApi/public/index.php/api/v1/',
   /* apiRestURL: 'http://192.168.250.5/apipizza/public/index.php/api/v1/', */
-  apiRestURL:'http://192.168.250.15/PizzaApi/public/index.php/api/v1/'
+  apiRestURL:'http://127.0.0.1/PizzaApi/public/index.php/api/v1/'
 };
 
 /*

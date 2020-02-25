@@ -39,7 +39,6 @@
                     <div class="bar-container">
                         <div (click)="goToTicketPage()" class="bar-item1 center-flex" id=""><img class="icon-bar cursor" src="assets/order.svg"></div>
                         <!-- <div (click)="goToPromotionsPage()" class="bar-item2 center-flex" id=""><img class="icon-bar cursor" src="assets/promotion.svg"></div> -->
-                        <div class="bar-item2 center-flex" id=""><img class="icon-bar cursor" src="assets/promotion.svg"></div>
                         <div (click)="goToOrdersPage()" class="bar-item3 center-flex" id=""><img class="icon-bar cursor" src="assets/history.svg"></div>
                         <div (click)="singOut()" class="bar-item4 center-flex" id=""><img class="icon-bar cursor" src="assets/close.svg"></div>
                     </div>
@@ -47,9 +46,8 @@
                 <!-- BAR CON ICONOS ACTIVAR SI DETECTA TOKEN -->
             </div>
             <div class="item2">
-            <img class="promotion" src="assets/promotion1.jpg">
-            <img class="promotion" src="assets/promotion2.jpg">
-            <img class="promotion" src="assets/promotion3.jpg">
+                
+            <img *ngFor="let item of promotions" (click)="presentAlert(item)" class="promotion" src="{{item.image}}">
 
             </div>
             <div class="itemy"></div>

@@ -324,11 +324,14 @@ input:required{
 .ai-center { align-items: center;}
 .jc-end { justify-content: flex-end; }
 .jc-center { justify-content: center; }
+.jc-space-between { justify-content: space-between; }
 
 .not-found {
     width: 100%;
     height: 100px;
 }
+
+.hide {display:none!important}
 
 
 
