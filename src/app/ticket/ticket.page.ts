@@ -23,8 +23,6 @@ export class TicketPage implements OnInit {
   { 
     let list:Array<any> = new Array<any>();
 
-    // localStorage.removeItem('details-'+this.user.id);
-
     let result2 = JSON.parse(localStorage.getItem('details-'+this.user.id));
     if (result2 != null) {
       let categories = result2.reduce(function(acc, valorActual, indice, vector){
@@ -39,31 +37,25 @@ export class TicketPage implements OnInit {
       }, []);
 
       var foodsNoClean = [];
+
+      result2.forEach(food => {
+        let sameProducts = result2.filter(word => word.id == food.id && word.size == food.size);
+        let newAmount = sameProducts.map(value => value.quantity).reduce(function(acumulador, valorActual){
+            return acumulador + valorActual
+        });
+
+        foodsNoClean.push({...sameProducts[0], quantity: newAmount});
+      });
+     
+      let mergedElements = [...(new Set(foodsNoClean.map(food => JSON.stringify(food))))].map(element => JSON.parse(element));
   
-      categories.forEach(element => 
+      categories.forEach(category => 
       {
-        let productSameCategory = result2.filter(word => word.category.name == element.name);
-
-        // productSameCategory.forEach(food => {
-        //   let sameProducts = productSameCategory.filter(word => word.id == food.id && word.size == food.size);
-        //   let newAmount = sameProducts.map(value => value.quantity).reduce(function(acumulador, valorActual){
-        //     return acumulador + valorActual
-        //   });
-
-        //   console.warn(newAmount);
-
-        //   // let clone = sameProducts[0];
-        //   // clone.quantity = newAmount;
-
-        //   // sameProducts[0].quantity = newAmount;
-          
-        //   // foodsNoClean.push(sameProducts[0]);
-        // });
+        let productSameCategory = mergedElements.filter(word => word.category.name == category.name);
 
         list.push({
-          name: element.name,
-          image:element.image,
-          // product: [...new Set(foodsNoClean)]
+          name: category.name,
+          image:category.image,
           product: productSameCategory
         });
       });
@@ -74,25 +66,7 @@ export class TicketPage implements OnInit {
       this.details = [];
     }
 
-    
-    console.log("-----------------------------");
-    console.log(list);
-    console.log("-----------------------------");
-
-
-
-    // this.details = JSON.parse(localStorage.getItem('details-'+this.user.id));
-    // let result = JSON.parse(localStorage.getItem('details-'+this.user.id));
-    // this.details = result != null ? result : [];
-    
-    // console.log(this.details);
-    // if (this.details != null) {
-    //   this.details.forEach(element => {
-    //     // this.total = this.total + element.price * element.quantity;
-    //     this.total = this.total + element.prices[element.size] * element.quantity;
-    //   });
-    // }
-    // console.log(this.details[0]);
+    this.total = this.details.map(category => category.product).flat().map(product => product.prices[product.size] * product.quantity).reduce((acumulador, totalProducto) => acumulador + totalProducto);
   }
 
   async presetAlert()
@@ -105,19 +79,8 @@ export class TicketPage implements OnInit {
     await alert.present();
   }
 
-  // delete(i:number){
-  //   // this.total = this.total - this.details[i].price * this.details[i].quantity;
-  //   this.details.splice(i, 1);
-    
-  //   this.total = 0;
-  //   this.details.forEach(element => {
-  //     this.total = this.total + element.prices[element.size] * element.quantity;
-  //   });
-  //   localStorage.setItem('details-'+this.user.id,JSON.stringify(this.details));
-  // }
   delete(i:number, j:number)
   {
-    // this.details[i].product[j].splice(j, 1);
     this.details[i].product.splice(j, 1);
     console.log(this.details[i]);
 
@@ -125,13 +88,6 @@ export class TicketPage implements OnInit {
       this.details.splice(i, 1);
     }
 
-    // console.log(this.details[i].length);
-    // return;
-    
-    // this.total = 0;
-    // this.details.forEach(element => {
-    //   this.total = this.total + element.prices[element.size] * element.quantity;
-    // });
     localStorage.setItem('details-'+this.user.id,JSON.stringify(this.details));
   }
 
@@ -159,8 +115,6 @@ export class TicketPage implements OnInit {
       });
     });
 
-    console.log(orders);
-    // return;
 
     this.menus.confirmOrder({
       type:"pickup",
@@ -173,36 +127,8 @@ export class TicketPage implements OnInit {
       this.details = [];
 
     }).catch(error => {
-      console.log(error);
+      console.error(error);
     });
-
-
-
-    // this.details.forEach(element => {
-    //   let detail = new Detail();
-    //   detail.food_id = element.id;
-    //   detail.quantity = element.quantity;
-    //   detail.size = element.size;
-      
-    //   orders.push(detail);
-    // });
-
-    // console.log(orders);
-    // this.menus.confirmOrder({
-    //   type:"pickup",
-    //   details:orders
-    // })
-    // .then(async data => {
-    //   console.log(data);
-
-    //   localStorage.removeItem('details-'+this.user.id);
-
-    //   await this.presetAlert();
-    //   this.details = [];
-
-    // }).catch(error => {
-    //   console.log(error);
-    // });
   }
 
   goToHomePage() {
