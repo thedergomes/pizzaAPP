@@ -24,44 +24,75 @@
         <div class="form-item2 bb center-flex">
             <div class="container">
               <div class="group">      
-                <input class="inputMail" type="text" required>
+                <input class="inputMail" type="text" [(ngModel)] = "mail" required>
                 <span class="highlight"></span>
                 <span class="bar barMail"></span>
                 <label>Correo</label>
               </div>
             </div>
         </div>
-        <div class="form-item3 bb center-flex"> 
-            <img class="icon iconPosition" src="../../assets/question.svg">
+        <!-- <div class="alert1 pr ml-25px" *ngIf="name.invalid && (name.dirty || name.touched || submitted)">
+          <div class="IconError1 center-flex pa"> <img class="iconSmall" src="assets/alert.svg"> </div>
+          <div class="textError1 left-flex pa ml-25px" >
+            <span *ngIf="name.errors.required"><small>Correo requerido.</small></span> 
           </div>
-          <div class="form-item4 bb">
-              <div class="container">
-                <div class="group">
-                  <select class="inputMail h-20 w-100">
-                    <option value="0"></option>
-                    <option value="1">Pregunta 1</option>
-                    <option value="2">Pregunta 2</option>
-                    <option value="3">Pregunta 3</option>
-                  </select>
-                </div>
+        </div> -->
+        <div *ngIf="pregunta !== ''" class="form-item3 bb center-flex"> 
+            <img class="icon iconPosition" src="../../assets/question.svg">
+        </div>
+        <div *ngIf="pregunta !== ''" class="form-item4 bb">
+            <div class="container">
+              <div class="group">
+                <span>{{pregunta}}</span>
               </div>
             </div>
-          <div class="form-item5 bb center-flex"> 
+        </div>
+
+          <div *ngIf="pregunta !== ''" class="form-item5 bb center-flex"> 
               <img class="icon iconPosition" src="../../assets/question.svg">
-            </div>
-            <div class="form-item6 bb center-flex">
-                <div class="container">
-                  <div class="group">      
-                    <input class="inputMail" type="text" required>
-                    <span class="highlight"></span>
-                    <span class="bar barMail"></span>
-                    <label>Respuesta Secreta</label>
-                  </div>
+          </div>
+          <div *ngIf="pregunta !== ''" class="form-item6 bb center-flex">
+              <div class="container">
+                <div class="group">      
+                  <input class="inputMail" type="text"  [(ngModel)] = "respuesta" required>
+                  <span class="highlight"></span>
+                  <span class="bar barMail"></span>
+                  <label>Respuesta Secreta</label>
                 </div>
+              </div>
+          </div>
+          <div *ngIf="error.answer" class="alert2 pr ml-25px" >
+            <div class="IconError1 center-flex pa"> <img class="iconSmall" src="assets/alert.svg"> </div>
+            <div class="textError1 left-flex pa ml-25px" >
+              <span *ngFor="let error of error.answer"><small>{{error}}</small></span> 
             </div>
-            <div class="form-item7 center-flex">
-              <button (click)="test()" class="btn btn-white">Continuar</button>
+          </div>
+          <div *ngIf="pregunta !== ''" class="form-item8 bb center-flex"> 
+            <img class="icon iconPosition" src="../../assets/lock.svg">
+        </div>
+          <div *ngIf="pregunta !== ''" class="form-item9 bb center-flex">
+            <div class="container">
+              <div class="group">      
+                <input class="inputMail" type="password"  [(ngModel)] = "password" required>
+                <span class="highlight"></span>
+                <span class="bar barMail"></span>
+                <label>Nueva clave</label>
+              </div>
             </div>
+        </div>
+        <div *ngIf="error.email" class="alert3 pr ml-25px" >
+            <div class="IconError1 center-flex pa"> <img class="iconSmall" src="assets/alert.svg"> </div>
+            <div class="textError1 left-flex pa ml-25px" >
+              <span *ngFor="let error of error.email"><small>{{error}}</small></span> 
+            </div>
+        </div>
+        
+          <div *ngIf="pregunta == ''" class="form-item7 center-flex">
+            <button (click)="getPreguntaSecreta()" class="btn btn-white">Continuar</button>
+          </div>
+          <div *ngIf="respuesta !== '' && password !== ''" class="form-item7 center-flex">
+            <button (click)="sendPreguntaSecreta()" class="btn btn-white">Enviar</button>
+          </div>
       </div>
     </div>
     <div class="item4"></div>

@@ -1,5 +1,10 @@
 <ion-header>
   <ion-toolbar class="headerColor">
+    <ion-buttons (click)="close()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="arrow-dropleft-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <body>
@@ -15,14 +20,14 @@
         <div class="panel">
           <div class="product d-flex jc-space-between">
             <span class="font-color-white"><b>{{ product.name }}</b></span>
-            <span class="font-color-white">{{price}} Bs C/U</span>
+            <span class="font-color-white">{{price}} C/U</span>
           </div>
             <div [ngClass]="{'hide' : product.category.name == 'Promociones'}" class="selectLabel-panel center-flex ">
               <span class="font-color-white">Tamaño: </span>
             </div>
           <div [ngClass]="{'hide' : product.category.name == 'Promociones'}" class="select-panel">
             <select class="selectCustom" [(ngModel)] = "size">
-              <option *ngFor="let key of ObjectKeys;" [value]="key">{{product.labels[key]}}</option>
+              <option *ngFor="let key of ObjectKeys;" [value]="key" style="color: black;">{{product.labels[key]}}</option>
             </select>
           </div>
           <div class="inputLabel-panel center-flex ">
@@ -35,14 +40,17 @@
             <span class="font-color-white ">Total:</span>
           </div>
       <div class="amount-panel d-flex ai-center jc-center">
-          <span class="font-color-white font-size-1em ">{{total}} Bs</span>
+          <span class="font-color-white font-size-1em ">{{(total).toLocaleString('es-VE', {
+            style: 'currency',
+            currency: 'VES'
+          })}}</span>
       </div>
 
       <div class="button1 mt-20px center-flex btn-red cursor" (click)="close()">
           <span>Cancelar</span>
       </div> 
       <div class="button2 mt-20px center-flex btn-green cursor">
-          <button [disabled]="quantity == 0 || quantity == null || quantity == undefined" (click)="add()">Agregar</button>
+          <button class="t" [disabled]="quantity == 0 || quantity == null || quantity == undefined" (click)="add()">Agregar</button>
       </div>
         </div>
         </div>

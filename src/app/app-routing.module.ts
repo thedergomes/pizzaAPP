@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)},
   { path: 'register', loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)},
   { path: 'forgotpass', loadChildren: () => import('./forgotpass/forgotpass.module').then( m => m.ForgotpassPageModule)},
-  { path: 'forgotpass2', loadChildren: () => import('./forgotpass/forgotpass2/forgotpass2.module').then( m => m.Forgotpass2PageModule)},
   { path: 'register',loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)},
   { path: 'menu',loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)},
   { path: 'products',loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)},

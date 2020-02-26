@@ -21,7 +21,7 @@ export class OrderFoodPage implements OnInit {
   constructor(
     private navCtrl : NavController, 
     private route:ActivatedRoute, 
-    private router:Router
+    private router:Router,
   ) { 
     this.route.queryParams.subscribe(params=>{
       if (params && params.product) {
@@ -36,7 +36,6 @@ export class OrderFoodPage implements OnInit {
     this.navCtrl.back();
     // this.
   }
-
   add()
   {
     // item.quantity = +data.quantity;
@@ -70,7 +69,10 @@ export class OrderFoodPage implements OnInit {
   }
 
   get price(){
-    return  this.product.prices[this.size]
+    return  (this.product.prices[this.size]).toLocaleString('es-VE', {
+      style: 'currency',
+      currency: 'VES'
+    })
   }
 
 }

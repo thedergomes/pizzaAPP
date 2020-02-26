@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController} from '@ionic/angular';
 // import { RegisterService } from '../services/register.service';
-import { FormBuilder, FormGroup, FormControl, Validators, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, ValidatorFn, ValidationErrors, AbstractControl } from '@angular/forms';
 
 import { AuthService } from '../services/auth.service';
 
@@ -45,12 +45,13 @@ export class RegisterPage implements OnInit {
   goToLoginPage() {
     this.navCtrl.navigateBack('login');
   }
+  
   ngOnInit() {
-    const notSame:ValidatorFn = (group:FormGroup):
-    ValidationErrors|null =>{
+    const notSame : ValidatorFn = (group:FormGroup): ValidationErrors | null =>{
       let pass = group.get('password').value;
       let c_pass = group.get('c_password').value;
-
+      console.log('notsame');
+      console.log(pass === c_pass);
       return pass === c_pass ? null : { notSame:true }
     }
 
