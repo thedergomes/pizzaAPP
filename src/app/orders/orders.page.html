@@ -68,7 +68,7 @@
           </div>
           
           <div class="ticket-order cursor" *ngFor="let order of Orders; index as i"  (click)="openModal(order.details, order.order, order)">
-            <div class="ticket-deleteT center-flex" *ngIf="order.status == 'pending'" (click)="cancel(order.order, i);$event.stopPropagation()"><img (click)="delete(i)" class="small cursor" src="assets/delete.svg"></div>
+            <div class="ticket-deleteT center-flex" *ngIf="order.status == 'pending'"></div>
               <div class="ticket-product text-aling-center">
                   {{order.order}}
               </div>

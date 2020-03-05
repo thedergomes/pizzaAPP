@@ -98,10 +98,30 @@ export class TicketPage implements OnInit {
     this.total = this.details.map(category => category.product).flat().map(product => product.prices[product.size] * product.quantity).reduce((acumulador, totalProducto) => acumulador + totalProducto, 0);
   }
 
-  cancelAll(){
-    this.details.splice(0, this.details.length);
-    this.total = 0;
-    localStorage.removeItem('details-'+this.user.id);
+  async cancelAll(){
+      const alert = await this.alertC.create({
+        header: 'Confirme su accion',
+        message: 'Seguro que desea limpiar la orden?',
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              console.log('Confirm Cancel: blah');
+            }
+          }, {
+            text: 'Borrar',
+            handler: () => {
+              this.details.splice(0, this.details.length);
+              this.total = 0;
+              localStorage.removeItem('details-'+this.user.id);
+            }
+          }
+        ]
+      });
+  
+      await alert.present();
   }
 
   confirm(){
