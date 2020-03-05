@@ -76,7 +76,7 @@
               <div class="ticket-product text-aling-center">
                   {{ order.id }}
               </div>
-              <div class="ticket-priceP center-flex"><span class="font-size-0-7em">{{order.date | date:"dd/MM/yy"}}</span></div>
+              <div class="ticket-priceP center-flex"><span class="font-size-0-7em">{{order.date | date:"dd/MM/yy HH:mm"}}</span></div>
               <div class="ticket-totalP center-flex" [ngClass]="{'status-green': order.status == 'accepted', 'status-orange': order.status == 'pending', 'status-': false}" >
                  <span> {{order.status}}</span> 
               </div>

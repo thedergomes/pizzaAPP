@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
 import { NavController} from '@ionic/angular';
+import { MenusService } from '../services/menus.service';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +12,9 @@ export class HomePage {
 
   // token = localStorage.getItem('token');
   token:string = "";
+  promotions: any = [];
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, private menus:MenusService,) {}
   goToMenuPage() {
     this.navCtrl.navigateForward('menu');  
   }
@@ -37,6 +40,9 @@ export class HomePage {
   ionViewWillEnter()
   {
     console.log('carga');
+    this.menus.getPromotions().then( data => {
+      this.promotions = data.data;
+    });
     this.token = localStorage.getItem('token');
   }
 
@@ -49,6 +55,16 @@ export class HomePage {
     // this.token = null;
 
     this.navCtrl.navigateForward('splash');
+  }
+
+  async presentAlert(item) {
+    let param:NavigationExtras={
+      queryParams:{
+        product:JSON.stringify(item)
+      }
+    }
+
+    this.navCtrl.navigateForward('order-food', param);
   }
 }
 

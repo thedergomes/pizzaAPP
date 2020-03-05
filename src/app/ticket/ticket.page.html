@@ -33,8 +33,14 @@
               {{product.name}} <small>({{product.quantity}})</small>
               <div class=""><small> ({{product.labels[product.size]}})</small></div>
             </div>
-            <div class="ticket-priceP center-flex"><span class="font-size-0-7em">{{product.prices[product.size]}}</span></div>
-            <div class="ticket-totalP center-flex"><span class="font-size-0-7em">{{product.quantity * product.prices[product.size]}}</span></div>
+            <div class="ticket-priceP center-flex"><span class="font-size-0-7em">{{(product.prices[product.size]).toLocaleString('es-VE', {
+              style: 'currency',
+              currency: 'VES'
+            })}}</span></div>
+            <div class="ticket-totalP center-flex"><span class="font-size-0-7em">{{(product.quantity * product.prices[product.size]).toLocaleString('es-VE', {
+              style: 'currency',
+              currency: 'VES'
+            })}}</span></div>
           </div>
         </div>
 
@@ -44,7 +50,10 @@
             <span>Cancelar</span>
           </div>
           <div class="footer-textF d-flex jc-end ai-center">Total:</div>
-          <div class="footer-totalF d-flex ai-center jc-center">{{ total }}</div>
+          <div class="footer-totalF d-flex ai-center jc-center">{{ (total).toLocaleString('es-VE', {
+            style: 'currency',
+            currency: 'VES'
+          }) }}</div>
         </div>
         <div class="button btn-green center-flex cursor" (click)="confirm()"> <b>Confirmar</b> </div>
       </div>

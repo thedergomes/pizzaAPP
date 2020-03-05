@@ -26,7 +26,8 @@ export class AddReservationPage implements OnInit {
   }
 
   addReservation(){
-    let a = Math.round(new Date("2020/03/05 15:34:00").getTime()/1000);
+    console.log(this.date);
+    let a = Math.round(new Date(this.date).getTime()/1000);
 
     this.menus.reservation({
       // date:this.date,

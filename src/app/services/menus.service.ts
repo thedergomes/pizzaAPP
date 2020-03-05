@@ -47,6 +47,22 @@ export class MenusService {
     });
   }
 
+  getPromotions():Promise<wsResponse<Product>>
+  {
+    return new Promise((resolve, reject) => {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+      });
+      let options = {headers};
+      this.http.get<wsResponse<Product>>(this.apiRestURL+'promotions', options)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   myOrder():Promise<wsResponse<Order>>
   {
     return new Promise((resolve, reject) => {

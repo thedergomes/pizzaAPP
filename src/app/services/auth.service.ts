@@ -75,7 +75,7 @@ export class AuthService {
     });
   }
 
-  getSecretQuestion():Promise<string>
+  getSecretQuestion(data):Promise<string>
   {
     return new Promise((resolve, reject) => {
       let headers = new HttpHeaders({
@@ -83,7 +83,7 @@ export class AuthService {
         // 'Authorization': 'Bearer '+localStorage.getItem("token")
       });
       let options = {headers};
-      this.http.get<string>(this.apiRestURL+'secretQuestion', options)
+      this.http.post<string>(this.apiRestURL+'secretQuestion', JSON.stringify(data), options)
         .subscribe(res => {
           resolve(res);
         }, (err) => {
@@ -92,4 +92,20 @@ export class AuthService {
     });
   }
 
+  resetPassword(data):Promise<string>
+  {
+    return new Promise((resolve, reject) => {
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+        // 'Authorization': 'Bearer '+localStorage.getItem("token")
+      });
+      let options = {headers};
+      this.http.post<string>(this.apiRestURL+'password/reset', JSON.stringify(data), options)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }

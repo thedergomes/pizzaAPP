@@ -100,8 +100,12 @@ label{
     grid-template-columns: 50px 83.5%;
     grid-template-areas:
         'mailIcon mailInput'
+        'alert1 alert1'
         'questionIcon questionInput'
         'answerIcon answerInput'
+        'alert2 alert2'
+        'testIcon testInput'
+        'alert3 alert3'
         'button button';
 }
 
@@ -111,12 +115,24 @@ label{
 .item2 { grid-area: form;}
     .form-item1 { grid-area: mailIcon;}
     .form-item2 { grid-area: mailInput;}
+    .alert1 { grid-area: alert1; padding-top: 15px;}
     .form-item3 { grid-area: questionIcon;}
     .form-item4 { grid-area: questionInput;}
     .form-item5 { grid-area: answerIcon;}
     .form-item6 { grid-area: answerInput;}
+    .alert2 { grid-area: alert1; padding-top: 15px;}
+    .form-item8 { grid-area: testIcon;}
+    .form-item9 { grid-area: testInput;}
+    .alert3 { grid-area: alert1; padding-top: 15px;}
     .form-item7 {grid-area: button; margin-top:20px;}
-
+.alert1,
+.alert2,
+.alert3 {
+    display: grid;
+    grid-template-columns: 50px 83.5%;
+    grid-template-areas:
+        'IconError1 textError1';
+}
 
 .item4 { grid-area: marginR;}
 

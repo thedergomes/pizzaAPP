@@ -93,6 +93,15 @@
               <span *ngIf="myform.errors?.notSame && !c_password.invalid && (c_password.dirty || c_password.touched || submitted)">password no coincide</span>
             </div>
         </div>
+        <div class="alert4 pr" *ngIf="myform.errors?.notSame && !c_password.invalid && (c_password.dirty || c_password.touched || submitted)">
+          <div class="IconError1 center-flex pa"> <img class="iconSmall" src="assets/alert.svg"> </div>
+          <div class="textError1 left-flex pa" >
+            <span><small>Las contraseña no coinciden.</small></span> 
+          </div>
+      </div>
+
+
+        
         <div class="form-ext-item9 bb center-flex"> 
           <img class="icon iconPosition" src="assets/question.svg">
         </div>

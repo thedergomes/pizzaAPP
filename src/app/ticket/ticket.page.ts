@@ -61,12 +61,12 @@ export class TicketPage implements OnInit {
       });
 
       this.details = list;
+      this.total = this.details.map(category => category.product).flat().map(product => product.prices[product.size] * product.quantity).reduce((acumulador, totalProducto) => acumulador + totalProducto, 0);
     }
     else{
       this.details = [];
     }
 
-    this.total = this.details.map(category => category.product).flat().map(product => product.prices[product.size] * product.quantity).reduce((acumulador, totalProducto) => acumulador + totalProducto);
   }
 
   async presetAlert()
@@ -81,20 +81,47 @@ export class TicketPage implements OnInit {
 
   delete(i:number, j:number)
   {
-    this.details[i].product.splice(j, 1);
-    console.log(this.details[i]);
+
+    if(this.details[i].product[j].quantity <= 1){
+      this.details[i].product.splice(j, 1);
+    }
+
+    if(this.details[i] && this.details[i].product[j] && this.details[i].product[j].quantity > 1){
+      this.details[i].product[j].quantity = this.details[i].product[j].quantity - 1;
+    }
 
     if (this.details[i].product.length == 0) {
       this.details.splice(i, 1);
     }
 
     localStorage.setItem('details-'+this.user.id,JSON.stringify(this.details));
+    this.total = this.details.map(category => category.product).flat().map(product => product.prices[product.size] * product.quantity).reduce((acumulador, totalProducto) => acumulador + totalProducto, 0);
   }
 
-  cancelAll(){
-    this.details.splice(0, this.details.length);
-    this.total = 0;
-    localStorage.removeItem('details-'+this.user.id);
+  async cancelAll(){
+      const alert = await this.alertC.create({
+        header: 'Confirme su accion',
+        message: 'Seguro que desea limpiar la orden?',
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              console.log('Confirm Cancel: blah');
+            }
+          }, {
+            text: 'Borrar',
+            handler: () => {
+              this.details.splice(0, this.details.length);
+              this.total = 0;
+              localStorage.removeItem('details-'+this.user.id);
+            }
+          }
+        ]
+      });
+  
+      await alert.present();
   }
 
   confirm(){
