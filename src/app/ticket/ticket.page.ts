@@ -72,10 +72,9 @@ export class TicketPage implements OnInit {
   async presetAlert()
   {
     const alert = await this.alertC.create({
-      message:'Pedido realizado con exito',
+      message:'Pedido realizado con exito <br><br> <small>Nota: <br> NO ACEPTAMOS DEVOLUCIÓNES!</small>   ',
       buttons:['Aceptar']
     });
-    
     await alert.present();
   }
 
